@@ -14,6 +14,8 @@ public:
 
     Reloj(int dia, int mes, int ano, int hora, int min);
 
+    Reloj(string datetime);
+
     //Modificadores
 
     void set_fecha(int dia, int mes, int ano);

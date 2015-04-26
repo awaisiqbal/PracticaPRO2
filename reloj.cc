@@ -19,6 +19,9 @@ Reloj::Reloj(int dia, int mes, int ano, int hora, int min){
     set_hora(hora,min);
     set_fecha(dia,mes,ano);
 }
+Reloj::Reloj(string datetime){
+
+}
 
 void Reloj::set_fecha(int dia, int mes, int ano){
     this->dia = dia;
