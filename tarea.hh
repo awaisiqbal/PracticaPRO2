@@ -1,8 +1,7 @@
 #ifndef TAREA_HH
 #define TAREA_HH
 
-#include "Tag.hh"
-#include <vector>
+#include "Tags.hh"
 class Tarea {
 
 public:
@@ -10,18 +9,21 @@ public:
 
     Tarea();
     Tarea(const string &titulo);
-    Tarea(const string &titulo,const vector<Tag> &tags);
+    Tarea(const string &titulo,const Tags &tags);
 
 
     void set_titulo(const string &titulo);
     string get_titulo() const;
-    void set_tags(const vector<Tag> &tags);
-    vector<Tag> get_tags() const;
+    void set_tags(const Tags &tags);
+    Tags get_tags() const;
+    bool contiene_tag(string tag);
+    void anadir_tag(string tag);
+    void borar_tag(string tag);
 
 
 private:
     string titulo;
-    vector<Tag> lista_tags; // lista ordenada de tags
+    Tags tags;
 
 };
 

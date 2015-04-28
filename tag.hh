@@ -2,27 +2,27 @@
 #define TAG_HH
 
 #include "Reloj.hh"
-class Tag{
+#include "map"
+class Tags{
 
 public:
     // Constructores
 
-    Tag();
-    Tag(const string &titulo,const vector<Reloj> &list);
+    Tags();
+    Tags(map<string,bool> lista_de_tags);
 
     // Consultores
 
-    string get_titulo();
-    vector<Reloj> get_list();
+    map<string,bool> get_tags();
+    bool search_tag(const string &tag); // true si el el map contiene el tag y esta en true;
 
     // Modificadores
-    void set_list(vector<Reloj> r);
-    void anadir_Reloj(Reloj r);
-    void eliminar_Reloj(Reloj r);
+    void add_tag(string tag);
+    void change_tag(string tag,bool estado);
+
 
 private:
-    string titulo;
-    vector<Reloj> lista; // lista de todas las tareas que tienen este tag
+    map<string,bool> lista; // lista de todas las tareas que tienen este tag
     int posicio(Reloj x,const vector<Reloj> &v, int esq, int dre); // buscar un elemento
 };
 

@@ -1,5 +1,6 @@
 #include "agenda.hh"
 #include "comanda0.hh"
+#include "reloj.hh"
 #include "utils.PRO2"
 
 int main()
@@ -7,17 +8,33 @@ int main()
     Comanda c;
     Agenda a;
     bool be = false;
-    vector<Tarea> v;
+    list<Tarea> v;
     while(c.llegir(be)){
         if(not be){
             if(c.es_consulta()){
                 if(c.nombre_dates()==0 and not c.te_expressio() and not c.te_titol() and not c.te_hora()){ // caso '?'
-                    //TODO mostrar todas las tareas del futuro
+                    Reloj r("00/00/00");
+                    r.set_hora("00:00");
+                    Reloj r2("31/12/99");
+                    r.set_hora("23:59");
+                    v = a.buscar_tarea_intervalo(r,r2,"*");
                 } else {
-                    if(c.nombre_dates() == 1){
-                        v = a.buscar_tarea_intervalo()
+                    if(c.nombre_dates() > 0 ){
+                        Reloj r(c.data(1));
+                        Reloj r2(c.data(1));
+                        if(c.nombre_dates() == 2) r2.set_fecha(c.data(2));
+                        if(c.te_hora()){
+                            r.set_hora(c.hora());
+                            r2.set_hora(c.hora());
+                        } else {
+                            r.set_hora("00:00");
+                            r2.set_hora("23:59");
+                        }
+
+                        v = a.buscar_tarea_intervalo(r,r2,'*');
                     }
                 }
+                 a.imprimir_menu(v);
             } else if (c.es_modificacio()){
 
             } else if (c.es_insercio()){
