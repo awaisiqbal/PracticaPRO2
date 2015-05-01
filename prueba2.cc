@@ -2,9 +2,11 @@
 #include <string>
 using namespace std;
 
-bool calcular(string s, int ini, int end){
+bool calcular(string s, int &ini, int end){
     if(s[ini]=='('){
-        return calcular(s,ini+1,end); // cada vez que empieza una expr
+        ++ini;
+        cout << "empezando expr... "<< endl;
+        return calcular(s,ini,end); // cada vez que empieza una expr
     } else {
         int i = ini;
        // cout << "ini: " << ini << endl;
@@ -21,20 +23,50 @@ bool calcular(string s, int ini, int end){
                 ++i;
             }
         }
+        //i posicion donde esta '.' o ','
+
+
         int lon = i - ini; // longitud para el substring
         cout << "longitud: "<< lon << endl;
         string tag1 = s.substr(ini,lon); // tag encotnrado
+        //tag1 con el primer tag
+       // if(tag1[lon] == ')' ) tag1 = tag1.substr(0,lon-1); // si
         cout << "tag1 :" << tag1 << endl;
         bool encontrado = true; // aqui va la busqueda del tag
+        bool encontrado2 = true;
+        string tag2;
+        ini = i;
+        if(s[ini+1] == '(' ){
+            ++ini;
+            encontrado2 = calcular(s,ini,end); // cada vez que empieza una expr
+        } else {
+            cout << "entrando en else != '(' " << endl;
+            int j = i;
+            while(s[j]!= ')'){
+                ++j;
+            }
+            tag2 = s.substr(ini+1,j-ini-1);
+            cout << "tag2 :"<< tag2 << endl;
+            encontrado2 = true; // AQUI va la busqueda del tag
+        }
+
+        if(s[i] == '.'){
+            cout << "entrando: AND"<< endl;
+            return encontrado and encontrado2;
+        } else {
+            cout << "entrando: OR"<< endl;
+            return encontrado or encontrado2;
+        }
+
         ini = i+1;
         if(ini >= end) return encontrado;
-        return calcular(s,ini,end);
 
     }
 }
 int main()
 {
   string s = "((#lleure,#feina).#art)";
-  bool cumple = calcular(s,1,s.size()-1);
+  int ini = 1;
+  bool cumple = calcular(s,ini,s.size()-1);
 
 }
