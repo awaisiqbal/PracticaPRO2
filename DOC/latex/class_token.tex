@@ -1,0 +1,248 @@
+\hypertarget{class_token}{\section{Referencia de la Clase Token}
+\label{class_token}\index{Token@{Token}}
+}
+
+
+Representa un string rellevant per a la classe \hyperlink{class_comanda}{Comanda}.  
+
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_token_aa3c5868ba4115f3189df6b2ac5b36f39}{Token} ()
+\item 
+\hyperlink{class_token_a2ecb0099476455ed7ce3c05abcbb2e31}{Token} (const string \&s, bool \&be)
+\begin{DoxyCompactList}\small\item\em Fa el tractament d'una string actualitzant la informació interna perquè funcionin bé les consultores. \end{DoxyCompactList}\item 
+string \hyperlink{class_token_a3cadf105c92e161b50eea2d8096cb608}{cos} ()
+\begin{DoxyCompactList}\small\item\em Consulta l'string contingut en el p.\-i. \end{DoxyCompactList}\item 
+bool \hyperlink{class_token_a53411d8b5b08289a126944104d246380}{es\-\_\-nombre} ()
+\begin{DoxyCompactList}\small\item\em Comprova si és un nombre (seqüència de dígits no buida) \end{DoxyCompactList}\item 
+bool \hyperlink{class_token_ab40c482fd70278c5f8ce53aa364d957e}{es\-\_\-text} ()
+\begin{DoxyCompactList}\small\item\em Comprova si és una paraula (seqüència de símbols que comença per una lletra i no conté ni \char`\"{}.\char`\"{} ni \char`\"{},\char`\"{} ni \char`\"{}\-:\char`\"{} ni \char`\"{}\#\char`\"{}) \end{DoxyCompactList}\item 
+bool \hyperlink{class_token_ad2949808a3a5d2afba78768e18005cbd}{es\-\_\-etiqueta} ()
+\begin{DoxyCompactList}\small\item\em Comprova si és una etiqueta (símbol \# seguit d'una paraula) \end{DoxyCompactList}\item 
+bool \hyperlink{class_token_a16aead065c986f34b51c6193bd42882c}{es\-\_\-hora} ()
+\begin{DoxyCompactList}\small\item\em Comprova si és una hora (amb format $\ast$$\ast$\-:$\ast$$\ast$, on $\ast$ és un dígit) \end{DoxyCompactList}\item 
+bool \hyperlink{class_token_a8791d9d6123190213f63ad1026ca05be}{es\-\_\-data} ()
+\begin{DoxyCompactList}\small\item\em Comprova si és una data (amb format $\ast$$\ast$.$\ast$$\ast$.$\ast$$\ast$, on $\ast$ és un dígit) \end{DoxyCompactList}\item 
+bool \hyperlink{class_token_a09eb1782d5b5d9d4a2a92f33c950bfc1}{es\-\_\-expressio} ()
+\begin{DoxyCompactList}\small\item\em Comprova si és una expressió booleana d'etiquetes (ben parentitzada, on els operadors són \char`\"{},\char`\"{} (disjunció binària) i \char`\"{}.\char`\"{} (conjunció binària) i els operands són etiquetes) \end{DoxyCompactList}\item 
+bool \hyperlink{class_token_ab49eee0e53697bbbbbcbf0c105b3cf77}{es\-\_\-esborrat} ()
+\begin{DoxyCompactList}\small\item\em Comprova si és un esborrat (una seqüència de símbols que comença per \char`\"{}-\/\char`\"{}) \end{DoxyCompactList}\item 
+string \hyperlink{class_token_a12c961c772aa760b719dc3becb523ac4}{tipus\-\_\-esborrat} ()
+\begin{DoxyCompactList}\small\item\em Consulta el tipus d'esborrat. \end{DoxyCompactList}\item 
+bool \hyperlink{class_token_a81c4eba71c6257da6cadfab43cb237da}{es\-\_\-consulta} ()
+\begin{DoxyCompactList}\small\item\em Comprova si és una consulta (\char`\"{}?\char`\"{} o \char`\"{}passat?\char`\"{} o \char`\"{}rellotge?\char`\"{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa un string rellevant per a la classe \hyperlink{class_comanda}{Comanda}. 
+
+Definición en la línea 17 del archivo token.\-hh.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{class_token_aa3c5868ba4115f3189df6b2ac5b36f39}{\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection[{Token}]{\setlength{\rightskip}{0pt plus 5cm}Token\-::\-Token (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_aa3c5868ba4115f3189df6b2ac5b36f39}
+\hypertarget{class_token_a2ecb0099476455ed7ce3c05abcbb2e31}{\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection[{Token}]{\setlength{\rightskip}{0pt plus 5cm}Token\-::\-Token (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{s, }
+\item[{bool \&}]{be}
+\end{DoxyParamCaption}
+)}}\label{class_token_a2ecb0099476455ed7ce3c05abcbb2e31}
+
+
+Fa el tractament d'una string actualitzant la informació interna perquè funcionin bé les consultores. 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+be = cert si i només si s és un string vàlid que pot formar part d'una comanda; quan be = cert, s'ha creat un objecte \hyperlink{class_token}{Token} sobre el qual es poden fer consultes 
+\end{DoxyPostcond}
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{class_token_a3cadf105c92e161b50eea2d8096cb608}{\index{Token@{Token}!cos@{cos}}
+\index{cos@{cos}!Token@{Token}}
+\subsubsection[{cos}]{\setlength{\rightskip}{0pt plus 5cm}string Token\-::cos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_a3cadf105c92e161b50eea2d8096cb608}
+
+
+Consulta l'string contingut en el p.\-i. 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+retorna l'string contingut en el p.\-i. 
+\end{DoxyPostcond}
+\hypertarget{class_token_a53411d8b5b08289a126944104d246380}{\index{Token@{Token}!es\-\_\-nombre@{es\-\_\-nombre}}
+\index{es\-\_\-nombre@{es\-\_\-nombre}!Token@{Token}}
+\subsubsection[{es\-\_\-nombre}]{\setlength{\rightskip}{0pt plus 5cm}bool Token\-::es\-\_\-nombre (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_a53411d8b5b08289a126944104d246380}
+
+
+Comprova si és un nombre (seqüència de dígits no buida) 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cert si el p.\-i. conté un nombre 
+\end{DoxyPostcond}
+\hypertarget{class_token_ab40c482fd70278c5f8ce53aa364d957e}{\index{Token@{Token}!es\-\_\-text@{es\-\_\-text}}
+\index{es\-\_\-text@{es\-\_\-text}!Token@{Token}}
+\subsubsection[{es\-\_\-text}]{\setlength{\rightskip}{0pt plus 5cm}bool Token\-::es\-\_\-text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_ab40c482fd70278c5f8ce53aa364d957e}
+
+
+Comprova si és una paraula (seqüència de símbols que comença per una lletra i no conté ni \char`\"{}.\char`\"{} ni \char`\"{},\char`\"{} ni \char`\"{}\-:\char`\"{} ni \char`\"{}\#\char`\"{}) 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cert si el p.\-i. conté una paraula 
+\end{DoxyPostcond}
+\hypertarget{class_token_ad2949808a3a5d2afba78768e18005cbd}{\index{Token@{Token}!es\-\_\-etiqueta@{es\-\_\-etiqueta}}
+\index{es\-\_\-etiqueta@{es\-\_\-etiqueta}!Token@{Token}}
+\subsubsection[{es\-\_\-etiqueta}]{\setlength{\rightskip}{0pt plus 5cm}bool Token\-::es\-\_\-etiqueta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_ad2949808a3a5d2afba78768e18005cbd}
+
+
+Comprova si és una etiqueta (símbol \# seguit d'una paraula) 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cert si el p.\-i. conté una etiqueta 
+\end{DoxyPostcond}
+\hypertarget{class_token_a16aead065c986f34b51c6193bd42882c}{\index{Token@{Token}!es\-\_\-hora@{es\-\_\-hora}}
+\index{es\-\_\-hora@{es\-\_\-hora}!Token@{Token}}
+\subsubsection[{es\-\_\-hora}]{\setlength{\rightskip}{0pt plus 5cm}bool Token\-::es\-\_\-hora (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_a16aead065c986f34b51c6193bd42882c}
+
+
+Comprova si és una hora (amb format $\ast$$\ast$\-:$\ast$$\ast$, on $\ast$ és un dígit) 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cert si el p.\-i. conté una hora 
+\end{DoxyPostcond}
+\hypertarget{class_token_a8791d9d6123190213f63ad1026ca05be}{\index{Token@{Token}!es\-\_\-data@{es\-\_\-data}}
+\index{es\-\_\-data@{es\-\_\-data}!Token@{Token}}
+\subsubsection[{es\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}bool Token\-::es\-\_\-data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_a8791d9d6123190213f63ad1026ca05be}
+
+
+Comprova si és una data (amb format $\ast$$\ast$.$\ast$$\ast$.$\ast$$\ast$, on $\ast$ és un dígit) 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cert si el p.\-i. conté una data 
+\end{DoxyPostcond}
+\hypertarget{class_token_a09eb1782d5b5d9d4a2a92f33c950bfc1}{\index{Token@{Token}!es\-\_\-expressio@{es\-\_\-expressio}}
+\index{es\-\_\-expressio@{es\-\_\-expressio}!Token@{Token}}
+\subsubsection[{es\-\_\-expressio}]{\setlength{\rightskip}{0pt plus 5cm}bool Token\-::es\-\_\-expressio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_a09eb1782d5b5d9d4a2a92f33c950bfc1}
+
+
+Comprova si és una expressió booleana d'etiquetes (ben parentitzada, on els operadors són \char`\"{},\char`\"{} (disjunció binària) i \char`\"{}.\char`\"{} (conjunció binària) i els operands són etiquetes) 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cert si el p.\-i. conté una expressió booleana d'etiquetes 
+\end{DoxyPostcond}
+\hypertarget{class_token_ab49eee0e53697bbbbbcbf0c105b3cf77}{\index{Token@{Token}!es\-\_\-esborrat@{es\-\_\-esborrat}}
+\index{es\-\_\-esborrat@{es\-\_\-esborrat}!Token@{Token}}
+\subsubsection[{es\-\_\-esborrat}]{\setlength{\rightskip}{0pt plus 5cm}bool Token\-::es\-\_\-esborrat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_ab49eee0e53697bbbbbcbf0c105b3cf77}
+
+
+Comprova si és un esborrat (una seqüència de símbols que comença per \char`\"{}-\/\char`\"{}) 
+
+\begin{DoxyPrecond}{Precondición}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cert si el p.\-i. és un esborrat 
+\end{DoxyPostcond}
+\hypertarget{class_token_a12c961c772aa760b719dc3becb523ac4}{\index{Token@{Token}!tipus\-\_\-esborrat@{tipus\-\_\-esborrat}}
+\index{tipus\-\_\-esborrat@{tipus\-\_\-esborrat}!Token@{Token}}
+\subsubsection[{tipus\-\_\-esborrat}]{\setlength{\rightskip}{0pt plus 5cm}string Token\-::tipus\-\_\-esborrat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_a12c961c772aa760b719dc3becb523ac4}
+
+
+Consulta el tipus d'esborrat. 
+
+\begin{DoxyPrecond}{Precondición}
+el p.\-i. és un esborrat 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+retorna \char`\"{}etiqueta\char`\"{} si el p.\-i. conté una etiqueta després del símbol \char`\"{}-\/\char`\"{}, \char`\"{}etiquetes\char`\"{} si conté l'string \char`\"{}etiquetes\char`\"{} després de \char`\"{}-\/\char`\"{}, i \char`\"{}tasca\char`\"{} si conté un nombre després de \char`\"{}-\/\char`\"{} 
+\end{DoxyPostcond}
+\hypertarget{class_token_a81c4eba71c6257da6cadfab43cb237da}{\index{Token@{Token}!es\-\_\-consulta@{es\-\_\-consulta}}
+\index{es\-\_\-consulta@{es\-\_\-consulta}!Token@{Token}}
+\subsubsection[{es\-\_\-consulta}]{\setlength{\rightskip}{0pt plus 5cm}bool Token\-::es\-\_\-consulta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_token_a81c4eba71c6257da6cadfab43cb237da}
+
+
+Comprova si és una consulta (\char`\"{}?\char`\"{} o \char`\"{}passat?\char`\"{} o \char`\"{}rellotge?\char`\"{}) 
+
+\begin{DoxyPrecond}{Precondición}
+el p.\-i. és una consulta 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cert si el p.\-i. és una consulta 
+\end{DoxyPostcond}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{token_8hh}{token.\-hh}\end{DoxyCompactItemize}

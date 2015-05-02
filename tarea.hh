@@ -1,7 +1,7 @@
 #ifndef TAREA_HH
 #define TAREA_HH
 
-#include "Tags.hh"
+#include "tags.hh"
 class Tarea {
 
 public:

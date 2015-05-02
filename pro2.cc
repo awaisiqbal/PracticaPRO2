@@ -97,6 +97,26 @@ int main()
                 v = a.buscar_tarea_intervalo(reloj1,reloj2,expr);
                 a.imprimir_menu(v);
             } else { //esborrat
+                string tipus = c.tipus_esborrat();
+                // Pre: se ha realizado una consulta anteriormente
+                int tasca = c.tasca();
+
+                map<Reloj,Tarea>::iterator it(v.begin());
+                advance(i1,tasca); // selecionamos la tarea
+                Reloj r1 = it->first;
+                Reloj r2 = it->first;
+                Tarea t = it->second;
+
+                if(tipus == "etiquetes"){
+                    Tags tags;
+                    t.set_tags(tags);
+                    todo_OK = a.modificar_tarea(r1,r2,t);
+                } else if(tipus == "etiqueta"){
+                    t.borar_tag(c.etiqueta(1));
+                    todo_OK = a.modificar_tarea(r1,r2,t);
+                } else { // Borrar tarea
+                    todo_OK = a.borrar_tarea(r1,t);
+                }
 
             }
 
@@ -104,56 +124,5 @@ int main()
 
         }
     }
-
-
-
-
-
-  int N = readint();
-  int M = readint();
-  Ranking R(M,N);
-  Sistema S(M);
-  S.leer_sistema(N);
-  int op;
-  op = readint();
-  bool fin_anticipado = false;
-  while (op > -6 and op < 0 and not fin_anticipado) {
-    if (op == -1 ) {
-      int ncrecen = readint();
-      for (int i=0; i<ncrecen; ++i) S.crecimiento(readint());
-    }
-    else if (op == -2) {
-      int nmueren = readint();
-      for (int i=0; i<nmueren; ++i) S.muerte(readint(),R);
-    }
-    else if (op == -3) {
-      cout << endl << "EMPAREJAMIENTO" << endl;
-      int p1 = readint();
-      int p2 = readint();
-      int p3;
-      S.reproduccion(p1,p2,p3,R);
-      if (p3!=0)
-    cout << p1 <<" y " << p2 << " han producido " << p3 << endl;
-      else
-    cout << p1 <<" y " << p2 << " no han producido nada"<< endl;
-    }
-    else if (op == -4) {
-      cout << endl << "RANKING" << endl;
-      R.escribir_ranking();
-    }
-    else if (op == -5) {
-      cout  << endl << "ORGANISMOS" << endl;
-      int nconsultables = readint();
-      for (int i=0; i<nconsultables; ++i) S.escribir_un_organismo(readint());
-    }
-    fin_anticipado = S.vivos()==0 or S.tamano()==M;
-    if (not fin_anticipado) op = readint();
-  }
-  cout <<  endl << "FIN" << endl;
-  cout <<  endl;
-  cout  << endl << "ORGANISMOS" << endl;
-  S.escribir_organismos();
-  cout << endl << "RANKING" << endl;
-  R.escribir_ranking();
 }
 

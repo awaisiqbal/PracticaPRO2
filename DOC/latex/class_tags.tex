@@ -1,0 +1,143 @@
+\hypertarget{class_tags}{\section{Referencia de la Clase Tags}
+\label{class_tags}\index{Tags@{Tags}}
+}
+
+
+Representa una colección de etiquetas.  
+
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_tags_a8d3045112662e0ace4b8bafb5a3e8f57}{Tags} ()
+\begin{DoxyCompactList}\small\item\em Creadora por defecto. \end{DoxyCompactList}\item 
+\hyperlink{class_tags_a55e22736b43fd945ac900a50a3c67509}{Tags} (map$<$ string, bool $>$ lista\-\_\-de\-\_\-tags)
+\begin{DoxyCompactList}\small\item\em Creadora por defecto. \end{DoxyCompactList}\item 
+map$<$ string, bool $>$ \hyperlink{class_tags_a811129b11acf0ae9c6f224a386075e46}{get\-\_\-tags} ()
+\begin{DoxyCompactList}\small\item\em Devuelve todas las etiquetas. \end{DoxyCompactList}\item 
+bool \hyperlink{class_tags_aff44c4ae5a949512c893d1fc9ab5312a}{search\-\_\-tag} (const string \&tag)
+\begin{DoxyCompactList}\small\item\em Busca si este tag está en la lista. \end{DoxyCompactList}\item 
+void \hyperlink{class_tags_a0bbd998942d9415108eae2be28daedd0}{add\-\_\-tag} (const string \&tag)
+\begin{DoxyCompactList}\small\item\em Añade una etiqueta en la lista. \end{DoxyCompactList}\item 
+void \hyperlink{class_tags_a6b5bf2e8bb405c6396d947543460710b}{borrar\-\_\-tag} (const string \&tag)
+\begin{DoxyCompactList}\small\item\em Borra la etiqueta de la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa una colección de etiquetas. 
+
+Definición en la línea 15 del archivo tags.\-hh.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{class_tags_a8d3045112662e0ace4b8bafb5a3e8f57}{\index{Tags@{Tags}!Tags@{Tags}}
+\index{Tags@{Tags}!Tags@{Tags}}
+\subsubsection[{Tags}]{\setlength{\rightskip}{0pt plus 5cm}Tags\-::\-Tags (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tags_a8d3045112662e0ace4b8bafb5a3e8f57}
+
+
+Creadora por defecto. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es una lista sin etiquetas 
+\end{DoxyPostcond}
+\hypertarget{class_tags_a55e22736b43fd945ac900a50a3c67509}{\index{Tags@{Tags}!Tags@{Tags}}
+\index{Tags@{Tags}!Tags@{Tags}}
+\subsubsection[{Tags}]{\setlength{\rightskip}{0pt plus 5cm}Tags\-::\-Tags (
+\begin{DoxyParamCaption}
+\item[{map$<$ string, bool $>$}]{lista\-\_\-de\-\_\-tags}
+\end{DoxyParamCaption}
+)}}\label{class_tags_a55e22736b43fd945ac900a50a3c67509}
+
+
+Creadora por defecto. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es una lista con las etiquetas que se han pasado por parametro 
+\end{DoxyPostcond}
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{class_tags_a811129b11acf0ae9c6f224a386075e46}{\index{Tags@{Tags}!get\-\_\-tags@{get\-\_\-tags}}
+\index{get\-\_\-tags@{get\-\_\-tags}!Tags@{Tags}}
+\subsubsection[{get\-\_\-tags}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string,bool$>$ Tags\-::get\-\_\-tags (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tags_a811129b11acf0ae9c6f224a386075e46}
+
+
+Devuelve todas las etiquetas. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve todas las etiquetas que hay en la lista 
+\end{DoxyPostcond}
+\hypertarget{class_tags_aff44c4ae5a949512c893d1fc9ab5312a}{\index{Tags@{Tags}!search\-\_\-tag@{search\-\_\-tag}}
+\index{search\-\_\-tag@{search\-\_\-tag}!Tags@{Tags}}
+\subsubsection[{search\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}bool Tags\-::search\-\_\-tag (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{tag}
+\end{DoxyParamCaption}
+)}}\label{class_tags_aff44c4ae5a949512c893d1fc9ab5312a}
+
+
+Busca si este tag está en la lista. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true si la etiqueta esta en la lista, en caso contratio devuelve falso 
+\end{DoxyPostcond}
+\hypertarget{class_tags_a0bbd998942d9415108eae2be28daedd0}{\index{Tags@{Tags}!add\-\_\-tag@{add\-\_\-tag}}
+\index{add\-\_\-tag@{add\-\_\-tag}!Tags@{Tags}}
+\subsubsection[{add\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}void Tags\-::add\-\_\-tag (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{tag}
+\end{DoxyParamCaption}
+)}}\label{class_tags_a0bbd998942d9415108eae2be28daedd0}
+
+
+Añade una etiqueta en la lista. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+añade una etiqueta en la lista 
+\end{DoxyPostcond}
+\hypertarget{class_tags_a6b5bf2e8bb405c6396d947543460710b}{\index{Tags@{Tags}!borrar\-\_\-tag@{borrar\-\_\-tag}}
+\index{borrar\-\_\-tag@{borrar\-\_\-tag}!Tags@{Tags}}
+\subsubsection[{borrar\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}void Tags\-::borrar\-\_\-tag (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{tag}
+\end{DoxyParamCaption}
+)}}\label{class_tags_a6b5bf2e8bb405c6396d947543460710b}
+
+
+Borra la etiqueta de la lista. 
+
+\begin{DoxyPrecond}{Precondición}
+la etiqueta esta en la lista 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cierto 
+\end{DoxyPostcond}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tags_8hh}{tags.\-hh}\end{DoxyCompactItemize}

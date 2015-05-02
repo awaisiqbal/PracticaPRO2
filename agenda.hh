@@ -1,18 +1,18 @@
-/** @file Agenda.hh
+/** @file agenda.hh
     @brief Especificación de la clase Agenda
 */
 #ifndef AGENDA_HH
 #define AGENDA_HH
 
-#include "Reloj.hh"
-#include "Tarea.hh"
+#include "reloj.hh"
+#include "tarea.hh"
 #include "list"
 #include "map"
 
 
 /** @class Agenda
 
-    @brief Representa una colección de Tareas, oerdenadas por la hora de tarea
+    @brief Representa una colección de Tareas, ordenadas por la hora de tarea
  */
 class Agenda {
 
@@ -23,7 +23,7 @@ private:
 public:
     /* Constructoras */
 
-    /** @brief Agenda
+    /** @brief Creadora por defecto.
 
         Se ejecuta automáticamente al declarar una agenda
 

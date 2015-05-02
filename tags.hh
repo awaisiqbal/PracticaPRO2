@@ -5,7 +5,7 @@
 #ifndef TAGS_HH
 #define TAGS_HH
 
-#include "Reloj.hh"
+#include "reloj.hh"
 #include "map"
 
 /** @class Tags

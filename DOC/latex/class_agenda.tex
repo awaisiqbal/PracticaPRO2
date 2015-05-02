@@ -1,0 +1,169 @@
+\hypertarget{class_agenda}{\section{Referencia de la Clase Agenda}
+\label{class_agenda}\index{Agenda@{Agenda}}
+}
+
+
+Representa una colección de Tareas, ordenadas por la hora de tarea.  
+
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_agenda_a6685054d2b4ccbf2a4ef2ac5e3746bc3}{Agenda} ()
+\begin{DoxyCompactList}\small\item\em Creadora por defecto. \end{DoxyCompactList}\item 
+map$<$ \hyperlink{class_reloj}{Reloj}, \hyperlink{class_tarea}{Tarea} $>$ \hyperlink{class_agenda_a82ce91d05bf272a3c0ead42fc64e84aa}{buscar\-\_\-tarea\-\_\-intervalo} (const \hyperlink{class_reloj}{Reloj} \&reloj1, const \hyperlink{class_reloj}{Reloj} \&reloj2, const string \&expr) const 
+\begin{DoxyCompactList}\small\item\em Busca tareas en un intervalos y que cumplan una expresión. \end{DoxyCompactList}\item 
+void \hyperlink{class_agenda_a755177707be90968dedb6ff36647c3af}{imprimir\-\_\-menu} (const map$<$ \hyperlink{class_reloj}{Reloj}, \hyperlink{class_tarea}{Tarea} $>$ \&lista\-\_\-tareas)
+\begin{DoxyCompactList}\small\item\em Imprime las tareas enumeradas. \end{DoxyCompactList}\item 
+bool \hyperlink{class_agenda_aeba776d0394a5cc0da53e7955d713133}{anadir\-\_\-tarea} (const \hyperlink{class_reloj}{Reloj} \&r, const \hyperlink{class_tarea}{Tarea} \&t)
+\begin{DoxyCompactList}\small\item\em añade una tarea en la agenda \end{DoxyCompactList}\item 
+bool \hyperlink{class_agenda_aecbb7c1af5d9816012ba9b6b7c5f3bfe}{modificar\-\_\-tarea} (const \hyperlink{class_reloj}{Reloj} \&reloj1, const \hyperlink{class_reloj}{Reloj} \&reloj2, const \hyperlink{class_tarea}{Tarea} \&t)
+\begin{DoxyCompactList}\small\item\em modifica una tarea que hay en la agenda \end{DoxyCompactList}\item 
+bool \hyperlink{class_agenda_af1d7e74d388a0b22c8186b4b329d0bae}{borrar\-\_\-tarea} (const \hyperlink{class_reloj}{Reloj} \&r, const \hyperlink{class_tarea}{Tarea} \&t)
+\begin{DoxyCompactList}\small\item\em borra una tarrea de la agenda \end{DoxyCompactList}\item 
+\hyperlink{class_reloj}{Reloj} \hyperlink{class_agenda_aba4ae16c8c68b5b08adabd6d3c633630}{get\-\_\-\-Reloj\-Actual} ()
+\item 
+bool \hyperlink{class_agenda_a8faca3490d5b520615c99809ce80521d}{set\-\_\-\-Reloj} (\hyperlink{class_reloj}{Reloj} r)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa una colección de Tareas, ordenadas por la hora de tarea. 
+
+Definición en la línea 17 del archivo agenda.\-hh.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{class_agenda_a6685054d2b4ccbf2a4ef2ac5e3746bc3}{\index{Agenda@{Agenda}!Agenda@{Agenda}}
+\index{Agenda@{Agenda}!Agenda@{Agenda}}
+\subsubsection[{Agenda}]{\setlength{\rightskip}{0pt plus 5cm}Agenda\-::\-Agenda (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_a6685054d2b4ccbf2a4ef2ac5e3746bc3}
+
+
+Creadora por defecto. 
+
+Se ejecuta automáticamente al declarar una agenda
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+el resultado es una agenta sin tareas y con el reloj actual a a 20/04/15 00\-:00 
+\end{DoxyPostcond}
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{class_agenda_a82ce91d05bf272a3c0ead42fc64e84aa}{\index{Agenda@{Agenda}!buscar\-\_\-tarea\-\_\-intervalo@{buscar\-\_\-tarea\-\_\-intervalo}}
+\index{buscar\-\_\-tarea\-\_\-intervalo@{buscar\-\_\-tarea\-\_\-intervalo}!Agenda@{Agenda}}
+\subsubsection[{buscar\-\_\-tarea\-\_\-intervalo}]{\setlength{\rightskip}{0pt plus 5cm}map$<${\bf Reloj},{\bf Tarea}$>$ Agenda\-::buscar\-\_\-tarea\-\_\-intervalo (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reloj} \&}]{reloj1, }
+\item[{const {\bf Reloj} \&}]{reloj2, }
+\item[{const string \&}]{expr}
+\end{DoxyParamCaption}
+) const}}\label{class_agenda_a82ce91d05bf272a3c0ead42fc64e84aa}
+
+
+Busca tareas en un intervalos y que cumplan una expresión. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape reloj1} $<$ {\itshape reloj2} y {\itshape expr} es una string que puede ser '$\ast$' en caso de que no tenga ninguna condición sobre etiquetas, '\#$<$etiqueta$>$' donde hay una sola etiqueta para buscar o que el strign contenga una expresion con condiciones A\-N\-D y O\-R. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un map$<$\-Reloj,\-Tarea$>$ donde están todas las tareas que hay en ese intervalo y que cumpla la expresión 
+\end{DoxyPostcond}
+\hypertarget{class_agenda_a755177707be90968dedb6ff36647c3af}{\index{Agenda@{Agenda}!imprimir\-\_\-menu@{imprimir\-\_\-menu}}
+\index{imprimir\-\_\-menu@{imprimir\-\_\-menu}!Agenda@{Agenda}}
+\subsubsection[{imprimir\-\_\-menu}]{\setlength{\rightskip}{0pt plus 5cm}void Agenda\-::imprimir\-\_\-menu (
+\begin{DoxyParamCaption}
+\item[{const map$<$ {\bf Reloj}, {\bf Tarea} $>$ \&}]{lista\-\_\-tareas}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_a755177707be90968dedb6ff36647c3af}
+
+
+Imprime las tareas enumeradas. 
+
+\begin{DoxyPrecond}{Precondición}
+lista no vacia 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cierto 
+\end{DoxyPostcond}
+\hypertarget{class_agenda_aeba776d0394a5cc0da53e7955d713133}{\index{Agenda@{Agenda}!anadir\-\_\-tarea@{anadir\-\_\-tarea}}
+\index{anadir\-\_\-tarea@{anadir\-\_\-tarea}!Agenda@{Agenda}}
+\subsubsection[{anadir\-\_\-tarea}]{\setlength{\rightskip}{0pt plus 5cm}bool Agenda\-::anadir\-\_\-tarea (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reloj} \&}]{r, }
+\item[{const {\bf Tarea} \&}]{t}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_aeba776d0394a5cc0da53e7955d713133}
+
+
+añade una tarea en la agenda 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true si se ha podido añadir y en caso contrario vuelve false 
+\end{DoxyPostcond}
+\hypertarget{class_agenda_aecbb7c1af5d9816012ba9b6b7c5f3bfe}{\index{Agenda@{Agenda}!modificar\-\_\-tarea@{modificar\-\_\-tarea}}
+\index{modificar\-\_\-tarea@{modificar\-\_\-tarea}!Agenda@{Agenda}}
+\subsubsection[{modificar\-\_\-tarea}]{\setlength{\rightskip}{0pt plus 5cm}bool Agenda\-::modificar\-\_\-tarea (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reloj} \&}]{reloj1, }
+\item[{const {\bf Reloj} \&}]{reloj2, }
+\item[{const {\bf Tarea} \&}]{t}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_aecbb7c1af5d9816012ba9b6b7c5f3bfe}
+
+
+modifica una tarea que hay en la agenda 
+
+\begin{DoxyPrecond}{Precondición}
+la tarea ya este en la agenda, si no se cambia la fecha y hora {\itshape reloj1} es igual a {\itshape reloj2} y {\itshape reloj1} tienes que ser el reloj original y {\itshape reloj2} el reloj cambiado 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true si se ha podido modificar en caso contrtio se devuelve falso 
+\end{DoxyPostcond}
+\hypertarget{class_agenda_af1d7e74d388a0b22c8186b4b329d0bae}{\index{Agenda@{Agenda}!borrar\-\_\-tarea@{borrar\-\_\-tarea}}
+\index{borrar\-\_\-tarea@{borrar\-\_\-tarea}!Agenda@{Agenda}}
+\subsubsection[{borrar\-\_\-tarea}]{\setlength{\rightskip}{0pt plus 5cm}bool Agenda\-::borrar\-\_\-tarea (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reloj} \&}]{r, }
+\item[{const {\bf Tarea} \&}]{t}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_af1d7e74d388a0b22c8186b4b329d0bae}
+
+
+borra una tarrea de la agenda 
+
+\begin{DoxyPrecond}{Precondición}
+La tarea esta en la agenda 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true si se ha podido borrar la tarea de la agenda 
+\end{DoxyPostcond}
+\hypertarget{class_agenda_aba4ae16c8c68b5b08adabd6d3c633630}{\index{Agenda@{Agenda}!get\-\_\-\-Reloj\-Actual@{get\-\_\-\-Reloj\-Actual}}
+\index{get\-\_\-\-Reloj\-Actual@{get\-\_\-\-Reloj\-Actual}!Agenda@{Agenda}}
+\subsubsection[{get\-\_\-\-Reloj\-Actual}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reloj} Agenda\-::get\-\_\-\-Reloj\-Actual (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_aba4ae16c8c68b5b08adabd6d3c633630}
+\hypertarget{class_agenda_a8faca3490d5b520615c99809ce80521d}{\index{Agenda@{Agenda}!set\-\_\-\-Reloj@{set\-\_\-\-Reloj}}
+\index{set\-\_\-\-Reloj@{set\-\_\-\-Reloj}!Agenda@{Agenda}}
+\subsubsection[{set\-\_\-\-Reloj}]{\setlength{\rightskip}{0pt plus 5cm}bool Agenda\-::set\-\_\-\-Reloj (
+\begin{DoxyParamCaption}
+\item[{{\bf Reloj}}]{r}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_a8faca3490d5b520615c99809ce80521d}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{agenda_8hh}{agenda.\-hh}\end{DoxyCompactItemize}
