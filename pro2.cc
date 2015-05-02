@@ -1,9 +1,8 @@
 #include "agenda.hh"
-#include "comanda0.hh"
+#include "comanda.hh"
 #include "reloj.hh"
 #include "tarea.hh"
 #include "tags.hh"
-#include "utils.PRO2"
 
 int main()
 {
@@ -19,7 +18,7 @@ int main()
                 r.set_hora("00:00");
                 Reloj r2("31/12/99");
                 r.set_hora("23:59");
-                string expr = '*';
+                string expr = "*";
                 if(c.nombre_dates()!=0 or c.te_expressio() or c.te_hora() or c.nombre_etiquetes() != 0){
                     if(c.nombre_dates() > 0 ){
                         Reloj r(c.data(1));
@@ -45,7 +44,7 @@ int main()
                 int tasca = c.tasca();
 
                 map<Reloj,Tarea>::iterator it(v.begin());
-                advance(i1,tasca); // selecionamos la tarea
+                advance(it,tasca); // selecionamos la tarea
                 Reloj r1 = it->first;
                 Reloj r2 = it->first;
                 Tarea t = it->second;
@@ -93,7 +92,7 @@ int main()
             } else if (c.es_passat()){
                 Reloj reloj1("00.00.00","00:00");
                 Reloj reloj2 = a.get_RelojActual();
-                string expr = '*';
+                string expr = "*";
                 v = a.buscar_tarea_intervalo(reloj1,reloj2,expr);
                 a.imprimir_menu(v);
             } else { //esborrat
@@ -102,7 +101,7 @@ int main()
                 int tasca = c.tasca();
 
                 map<Reloj,Tarea>::iterator it(v.begin());
-                advance(i1,tasca); // selecionamos la tarea
+                advance(it,tasca); // selecionamos la tarea
                 Reloj r1 = it->first;
                 Reloj r2 = it->first;
                 Tarea t = it->second;

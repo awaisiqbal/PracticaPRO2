@@ -1,4 +1,4 @@
-/** @file Tag.hh
+/** @file tags.hh
     @brief Especificación de la clase Tag
 */
 
@@ -7,6 +7,8 @@
 
 #include "reloj.hh"
 #include "map"
+#include <string>
+using namespace std;
 
 /** @class Tags
 
@@ -16,7 +18,6 @@ class Tags{
 
 private:
     map<string,bool> lista; // lista de todas las tareas que tienen este tag
-    int posicio(Reloj x,const vector<Reloj> &v, int esq, int dre); // buscar un elemento
 
 public:
     // Constructores

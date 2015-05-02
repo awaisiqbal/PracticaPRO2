@@ -2,6 +2,8 @@
 #define TAREA_HH
 
 #include "tags.hh"
+#include <string>
+using namespace std;
 class Tarea {
 
 public:

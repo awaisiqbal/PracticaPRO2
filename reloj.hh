@@ -1,6 +1,9 @@
 #ifndef RELOJ_HH
 #define RELOJ_HH
 
+
+#include <string>
+using namespace std;
 class Reloj {
 
 public:
@@ -16,6 +19,8 @@ public:
 
     Reloj(string datetime);// formato DD/MM/YY
 
+    Reloj(string datetime,string hora);// formato DD/MM/YY HH:MM
+
     //Modificadores
     void set_fecha(string fecha);
     void set_fecha(int dia, int mes, int ano);
@@ -25,6 +30,8 @@ public:
 
     //Consultores
 
+    string get_fecha();
+    string get_hora();
     bool es_mayor_igual(Reloj r);
 
 
