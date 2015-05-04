@@ -1,72 +1,88 @@
 #include "reloj.hh"
 
-Reloj::Reloj(){
-    set_hora(00,00);
-    set_fecha(20,04,15);
+Reloj::Reloj()
+{
+    fecha = "20.04.15";
+    hora = "00:00";
 }
 
-Reloj::Reloj(int hora, int min){
-    set_hora(hora,min);
-    set_fecha(20,04,15);
-}
-
-Reloj::Reloj(int dia, int mes, int ano){
-    set_hora(00,00);
-    set_fecha(dia,mes,ano);
-}
-
-Reloj::Reloj(int dia, int mes, int ano, int hora, int min){
-    set_hora(hora,min);
-    set_fecha(dia,mes,ano);
-}
-Reloj::Reloj(string datetime){
-
-}
-
-void Reloj::set_fecha(int dia, int mes, int ano){
-    this->dia = dia;
-    this->mes = mes;
-    this->ano = ano;
-}
-
-void Reloj::set_hora(int hora, int min){
-    this->hora = hora;
-    this->min = min;
-}
-/**
- * @brief es_mayor_igual
- * @param r
- * @return true cuando reloj es mayor o igual que el reloj que se pasa por parametro
- */
-bool Reloj::es_mayor_igual(Reloj r){
-    if(this->ano > r.ano){
-        return true;
-    } else if (this->ano == r.ano){
-        if(this->mes > r.mes){
-            return true;
-        } else if (this->mes == r.mes){
-            if(this->dia > r.dia){
-                return true;
-            } else if (this->dia == r.dia){
-                if(this->hora > r.hora){
-                    return true;
-                } else if (this->hora == r.hora){
-                    if(this->min >= r.min){
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    } else {
-       return false;
+Reloj::Reloj(string fechaHora)
+{
+    if (fechaHora[2] == '.') {
+        fecha = fechaHora;
+        hora = "00:00";
+    }
+    else {
+        fecha = "20.04.15";
+        hora = fechaHora;
     }
 }
 
+Reloj::Reloj(string fecha, string hora)
+{
+    this->fecha = fecha;
+    this->hora = hora;
+}
+
+
+string Reloj::dar_vuelta(string fecha)
+{
+    string aux = fecha;
+    aux[0] = fecha[6];
+    aux[1] = fecha[7];
+    aux[6] = fecha[0];
+    aux[7] = fecha[1];
+
+    return aux;
+}
+
+bool Reloj::modificar_fecha(string fecha)
+{
+    if (fecha_menor(fecha)) return false;
+    else this->fecha = fecha;
+    return true;
+}
+
+bool Reloj::modificar_hora(string hora)
+{
+    if (hora_menor(hora)) return false;
+    else this->hora = hora;
+    return true;
+}
+
+bool Reloj::es_menor(const Reloj &r)
+{
+    string hora = r.hora,fecha = r.fecha;
+    string aux, aux2;
+    aux = dar_vuelta(this->fecha);
+    aux2 = dar_vuelta(fecha);
+    if (aux2 < aux) return true;
+    else if (aux2==aux and hora < this->hora) return true;
+    else return false;
+}
+
+string Reloj::consultar_fecha()
+{
+  return fecha;
+}
+
+string Reloj::consultar_hora()
+{
+  return hora;
+}
+
+bool Reloj::fecha_menor(string fecha)
+{
+    string aux, aux2;
+    aux = dar_vuelta(this->fecha);
+    aux2 = dar_vuelta(fecha);
+
+    if (aux2 < aux) return true;
+    else return false;
+}
+
+bool Reloj::hora_menor(string hora)
+{
+    if (hora < this->hora) return true;
+    else return false;
+}

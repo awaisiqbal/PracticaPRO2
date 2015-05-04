@@ -50,7 +50,7 @@ public:
         \pre cierto
         \post devuelve true si la etiqueta esta en la lista, en caso contratio devuelve falso
      */
-    bool search_tag(const string &tag); // true si el el map contiene el tag y esta en true;
+    bool search_tag(const string &tag); // true si el el map contiene el tag ;
 
     // Modificadores
 

@@ -75,10 +75,10 @@ public:
     bool borrar_tarea(const Reloj &r, const Tarea &t);
 
 
-    Reloj get_RelojActual();
+    Reloj consultar_RelojActual();
 
 
-    bool set_Reloj(Reloj r);
+    bool modificar_RelojActual(Reloj r);
 
 };
 

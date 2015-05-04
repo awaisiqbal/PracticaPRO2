@@ -1,44 +1,33 @@
 #include "tags.hh"
-#include <algorithm>
-Tags::Tags(){}
 
-Tags::Tags(const string &titulo, const vector<Reloj> &list){
-    this->titulo = titulo;
-    this->lista = list;
+Tags::Tags()
+{
 }
 
-string Tags::get_titulo(){
-    return titulo;
+Tags::Tags(map<string,bool> lista_de_tags)
+{
+    this->lista = lista_de_tags;
 }
 
-vector<Reloj> Tags::get_list(){
-    return lista;
+
+map<string,bool> Tags::get_tags()
+{
+    return this->lista;
 }
 
-void Tags::set_list(vector<Reloj> r){
-    this->lista = r;
+bool Tags::search_tag(const string &tag)
+{
+    map<string,bool>::iterator it = lista.find(tag);
+    return it != lista.end();
 }
 
-void Tags::anadir_Reloj(Reloj r){
-    lista.push_back(r);
-    sort(lista.begin(),lista.end(),es_mayor_igual);
+void Tags::add_tag(const string &tag)
+{
+    lista.insert(pair<string,bool>(tag,false));
 }
 
-void Tags::eliminar_Reloj(Reloj r){
-    //TODO temporalmente busqueda linial
-    int pos = this->posicio(r,this->lista,0,lista.size());
-    if(pos != -1){
-        lista.erase(&lista[pos]);
-        //lista.erase(lista.begin() + pos);
-    }
+void Tags::borrar_tag(const string &tag)
+{
+    lista.erase(lista.find(tag));
 }
 
-// Pre: (0 <= esq) and (dre < v.size()) and (v esta ordenat creixentment)
-// Post: retorna i tal que, o be esq<=i<=dre i v[i]==x, o be i==-1 i x no es a v[esq..dre]
-int Tags::posicio(Reloj x, const vector<Reloj>& v, int esq, int dre) {
-    if (esq > dre) return -1;
-    int pos = (esq + dre)/2; // posicio central de v[esq..dre]
-    if (x < v[pos]) return posicio(x, v, esq, pos - 1);
-    if (x > v[pos]) return posicio(x, v, pos + 1, dre);
-    return pos;
-}

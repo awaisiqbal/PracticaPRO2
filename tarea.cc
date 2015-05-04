@@ -30,22 +30,15 @@ Tags Tarea::get_tags() const{
     return tags;
 }
 
-/*
-void Tarea::set_titulo(const string &titulo){
-
+bool Tarea::contiene_tag( const string &tag){
+    return tags.search_tag(tag);
 }
 
-string Tarea::get_titulo() const{
-    return "";
-}
-void Tarea::set_tags(const Tags &tags){
-
+void Tarea::anadir_tag(const string &tag){
+    tags.add_tag(tag);
 }
 
-Tags Tarea::get_tags() const{
-
+void Tarea::borar_tag(const string &tag){
+    tags.borrar_tag(tag);
 }
-bool Tarea::contiene_tag(string tag);
-void Tarea::anadir_tag(string tag);
-void Tarea::borar_tag(string tag);
-*/
+
