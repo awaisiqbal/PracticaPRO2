@@ -8,6 +8,7 @@
 #include "reloj.hh"
 #include "map"
 #include <string>
+#include <iostream>
 using namespace std;
 
 /** @class Tags
@@ -67,6 +68,13 @@ public:
         \post cierto
      */
     void borrar_tag(const string &tag);
+
+    /** @brief imprime los tags
+
+        \pre cierto
+        \post imprime todas las etiquetas
+     */
+    void imprimir_tags();
 
 };
 

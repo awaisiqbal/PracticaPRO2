@@ -43,25 +43,31 @@ int main()
             } else if (c.es_modificacio()){
                 // Pre: se ha realizado una consulta anteriormente
                 int tasca = c.tasca();
-
-                map<Reloj,Tarea>::iterator it(v.begin());
-                advance(it,tasca); // selecionamos la tarea
-                Reloj r1 = it->first;
-                Reloj r2 = it->first;
-                Tarea t = it->second;
-                if(c.te_titol()){
-                    t.set_titulo(c.titol());
+                if(tasca < v.size()){
+                    map<Reloj,Tarea>::iterator it(v.begin());
+                    advance(it,tasca); // selecionamos la tarea
+                    Reloj r1 = it->first;
+                    Reloj r2 = it->first;
+                    Tarea t = it->second;
+                    if(c.te_titol()){
+                        t.set_titulo(c.titol());
+                    }
+                    if(c.te_hora()){
+                        r2.modificar_hora(c.hora());
+                    }
+                    if(c.nombre_dates() != 0){
+                        r2.modificar_fecha(c.data(1));
+                    }
+                    if(c.nombre_etiquetes() != 0){
+                        t.anadir_tag(c.etiqueta(1));
+                    }
+                    todo_OK = a.modificar_tarea(r1,r2,t);
+                } else {
+                    todo_OK = false;
                 }
-                if(c.te_hora()){
-                    r2.modificar_hora(c.hora());
-                }
-                if(c.nombre_dates() != 0){
-                    r2.modificar_fecha(c.data(1));
-                }
-                todo_OK = a.modificar_tarea(r1,r2,t);
-
 
             } else if (c.es_insercio()){
+                cout << "ES INSERCIO! " << endl;
                 Reloj r;
                 if(c.nombre_dates() == 1){
                     r.modificar_fecha(c.data(1));
@@ -77,8 +83,11 @@ int main()
                 }
 
                 Tarea tarea(c.titol(),tags);
-                todo_OK = a.anadir_tarea(r,tarea);
 
+                todo_OK = a.anadir_tarea(r,tarea);
+                //TODO borrar la siguiente linia despues de pruebas
+            a.imprimir_menu_actual();
+                //TODO
 
             } else if (c.es_rellotge()){
                 Reloj r;

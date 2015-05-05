@@ -1,5 +1,4 @@
 #include "tags.hh"
-
 Tags::Tags()
 {
 }
@@ -29,5 +28,13 @@ void Tags::add_tag(const string &tag)
 void Tags::borrar_tag(const string &tag)
 {
     lista.erase(lista.find(tag));
+}
+
+void Tags::imprimir_tags()
+{
+    map<string,bool>::iterator it(lista.begin());
+    while(it != lista.end()){
+        cout << " " << it->first ;
+    }
 }
 

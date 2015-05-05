@@ -52,6 +52,13 @@ public:
      */
     void imprimir_menu(const map<Reloj,Tarea> &lista_tareas);
 
+    /** @brief Imprime todas las tareas que en el horario
+
+        \pre horario no vaio
+        \post cierto
+     */
+    void imprimir_menu_actual();
+
     /** @brief añade una tarea en la agenda
 
       \pre cierto
