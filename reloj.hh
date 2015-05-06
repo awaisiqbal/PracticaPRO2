@@ -105,6 +105,11 @@ public:
         }
     }
 
+    bool operator==(const Reloj &other) const
+    {
+        return this->fecha == other.fecha and this->hora == other.hora;
+    }
+
 
 
 };

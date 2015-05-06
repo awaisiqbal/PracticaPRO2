@@ -43,7 +43,11 @@ public:
              contenga una expresion con condiciones AND y OR.
         \post El resultado es un map<Reloj,Tarea> donde están todas las tareas que hay en ese intervalo y que cumpla la expresión
      */
-    map<Reloj,Tarea> buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr) const;
+    bool buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr, map<Reloj,Tarea> &map) ;
+
+
+    void comprobar_expr(map<Reloj,Tarea> &map,const string &expr);
+
 
     /** @brief Imprime las tareas enumeradas
 
@@ -80,7 +84,6 @@ public:
         \post devuelve true si se ha podido borrar la tarea de la agenda
      */
     bool borrar_tarea(const Reloj &r, const Tarea &t);
-
 
     Reloj consultar_RelojActual();
 

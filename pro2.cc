@@ -17,30 +17,38 @@ int main()
         bool todo_OK = true;
         if(be){
             if(c.es_consulta()){
-                Reloj r("00/00/00","00:00");
-                Reloj r2("31/12/99","23:59");
-                string expr = "*";
-                if(c.nombre_dates()!=0 or c.te_expressio() or c.te_hora() or c.nombre_etiquetes() != 0){
-                    if(c.nombre_dates() > 0 ){
-                        Reloj r(c.data(1));
-                        Reloj r2(c.data(1));
-                        if(c.nombre_dates() == 2) r2.modificar_fecha(c.data(2));
-                        if(c.te_hora()){
-                            r.modificar_hora(c.hora());
-                            r2.modificar_hora(c.hora());
-                        } else {
-                            r.modificar_hora("00:00");
-                            r2.modificar_hora("23:59");
+                cout << "ES CONSULTA! " << endl;
+                if(not c.es_rellotge()){
+                    Reloj r("00/00/00","00:00");
+                    Reloj r2("31/12/99","23:59");
+                    string expr = "*";
+                    if(c.nombre_dates()!=0 or c.te_expressio() or c.te_hora() or c.nombre_etiquetes() != 0){
+                        if(c.nombre_dates() > 0 ){
+                            Reloj r(c.data(1));
+                            Reloj r2(c.data(1));
+                            if(c.nombre_dates() == 2) r2.modificar_fecha(c.data(2));
+                            if(c.te_hora()){
+                                r.modificar_hora(c.hora());
+                                r2.modificar_hora(c.hora());
+                            } else {
+                                r.modificar_hora("00:00");
+                                r2.modificar_hora("23:59");
+                            }
+                        }
+                        if(c.te_expressio()){
+                            expr = c.expressio();
+                        } else if (c.nombre_etiquetes() == 1){ //TODO comprobar si se puede poner mas etiquetas
+                            expr = c.etiqueta(1);
                         }
                     }
-                    if(c.te_expressio()) expr = c.expressio();
-                    else if (c.nombre_etiquetes() == 1){ //TODO comprobar si se puede poner mas etiquetas
-                        expr = c.etiqueta(1);
-                    }
+                todo_OK = a.buscar_tarea_intervalo(r,r2,expr,v);
+                if(todo_OK) a.imprimir_menu(v);
+                } else { // "RELLOTGE?"
+                    Reloj r = a.consultar_RelojActual();
+                    cout << r.consultar_fecha() << "   " << r.consultar_hora() << endl;
                 }
-                v = a.buscar_tarea_intervalo(r,r2,expr);
-                a.imprimir_menu(v);
             } else if (c.es_modificacio()){
+                cout << "ES MODIFICACIO! " << endl;
                 // Pre: se ha realizado una consulta anteriormente
                 int tasca = c.tasca();
                 if(tasca < v.size()){
@@ -90,22 +98,32 @@ int main()
                 //TODO
 
             } else if (c.es_rellotge()){
+                 cout << "ES RELLOTGE! " << endl;
                 Reloj r;
-                if(not c.te_hora() and not c.nombre_dates() != 0){
-                    if(c.te_hora()) r.modificar_hora(c.hora());
-                    if(c.nombre_dates() != 0) r.modificar_fecha(c.data(1));
+                if( c.te_hora() or  c.nombre_dates() != 0){
+                    if(c.te_hora()){
+                        cout << "\t modificar hora..." << endl;
+                        r.modificar_hora(c.hora());
+                    }
+                    if(c.nombre_dates() != 0){
+                        cout << "\t modificar fecha..." << endl;
+                        r.modificar_fecha(c.data(1));
+                    }
                     todo_OK = a.modificar_RelojActual(r);
+                    if(todo_OK) cout << "\tTodo OK!" << endl;
                 } else { // caso consulta
                     r = a.consultar_RelojActual();
                     cout << r.consultar_fecha() << "   " << r.consultar_hora() << endl;
                 }
             } else if (c.es_passat()){
+                cout << "ES PASSAT! " << endl;
                 Reloj reloj1("00.00.00","00:00");
                 Reloj reloj2 = a.consultar_RelojActual();
                 string expr = "*";
-                v = a.buscar_tarea_intervalo(reloj1,reloj2,expr);
-                a.imprimir_menu(v);
+                todo_OK = a.buscar_tarea_intervalo(reloj1,reloj2,expr,v);
+                if(todo_OK) a.imprimir_menu(v);
             } else { //esborrat
+                cout << "ES ESBORRAT! " << endl;
                 string tipus = c.tipus_esborrat();
                 // Pre: se ha realizado una consulta anteriormente
                 int tasca = c.tasca();
@@ -128,7 +146,7 @@ int main()
                 }
 
             }
-
+        if(todo_OK) cout << "Si s'ha realitzat" << endl;
         if(not todo_OK) cout << "No s'ha realitzat" << endl;
 
         }
