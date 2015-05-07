@@ -95,6 +95,16 @@ public:
         }
     }
 
+    bool operator<=( const Reloj& other) const {
+        if(this->fecha < other.fecha){
+            return true;
+        } else if (this->fecha > other.fecha){
+            return false;
+        } else {
+            return this->hora <= other.hora;
+        }
+    }
+
     bool operator==(const Reloj &other) const
     {
         return this->fecha == other.fecha and this->hora == other.hora;

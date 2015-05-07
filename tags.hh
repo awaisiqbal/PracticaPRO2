@@ -60,14 +60,14 @@ public:
         \pre cierto
         \post añade una etiqueta en la lista
      */
-    void add_tag(const string &tag);
+    bool add_tag(const string &tag);
 
     /** @brief Borra la etiqueta de la lista
 
         \pre la etiqueta esta en la lista
         \post cierto
      */
-    void borrar_tag(const string &tag);
+    bool borrar_tag(const string &tag);
 
     /** @brief imprime los tags
 

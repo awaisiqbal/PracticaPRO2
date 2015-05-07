@@ -72,13 +72,13 @@ public:
         \pre cierto
         \post añade una etiqueta a una tarea.
     */
-    void anadir_tag(const string &tag);
+    bool anadir_tag(const string &tag);
 
     /** @brief Borra una etiqueta de una tarea.
         \pre la tarea tiene la etiqueta
         \post borra la etiqueta de una tarea.
     */
-    void borar_tag(const string &tag);
+    bool borrar_tag(const string &tag);
 
 };
 

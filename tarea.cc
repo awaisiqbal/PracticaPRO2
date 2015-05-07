@@ -34,11 +34,11 @@ bool Tarea::contiene_tag( const string &tag){
     return tags.search_tag(tag);
 }
 
-void Tarea::anadir_tag(const string &tag){
-    tags.add_tag(tag);
+bool Tarea::anadir_tag(const string &tag){
+   return tags.add_tag(tag);
 }
 
-void Tarea::borar_tag(const string &tag){
-    tags.borrar_tag(tag);
+bool Tarea::borrar_tag(const string &tag){
+   return tags.borrar_tag(tag);
 }
 

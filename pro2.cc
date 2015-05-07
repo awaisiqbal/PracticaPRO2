@@ -42,10 +42,6 @@ int main()
                         } else if (c.nombre_etiquetes() == 1){ //TODO comprobar si se puede poner mas etiquetas
                             expr = c.etiqueta(1);
                         }
-                        cout << endl; cout << endl;
-                        r.imprimir_Reloj();
-                        cout << endl;
-                        r2.imprimir_Reloj();
                     } else if (c.es_passat()){ // 'passat?'
                         cout << "\tpassat?" << endl;
                         r2 = a.consultar_RelojActual();
@@ -86,7 +82,7 @@ int main()
                         r2.modificar_fecha(c.data(1));
                     }
                     if(c.nombre_etiquetes() != 0){
-                        t.anadir_tag(c.etiqueta(1));
+                        t.anadir_tag(c.etiqueta(1));//TODO solo se puede añadir mas de 1 ?
                     }
                     cout << "nuevo titulo: "<< t.get_titulo()<< endl;
                     todo_OK = a.modificar_tarea(r1,r2,t);
@@ -140,9 +136,10 @@ int main()
                 string tipus = c.tipus_esborrat();
                 // Pre: se ha realizado una consulta anteriormente
                 int tasca = c.tasca()-1;
+                cout << "tasca:   " << endl;
 
                 map<Reloj,Tarea>::iterator it(v.begin());
-                advance(it,tasca-1); // selecionamos la tarea
+                advance(it,tasca); // selecionamos la tarea
                 Reloj r1 = it->first;
                 Reloj r2 = it->first;
                 Tarea t = it->second;
@@ -154,8 +151,8 @@ int main()
                     todo_OK = a.modificar_tarea(r1,r2,t);
                 } else if(tipus == "etiqueta"){
                     cout << "\t etiqueta..." << endl;
-                    t.borar_tag(c.etiqueta(1));
-                    todo_OK = a.modificar_tarea(r1,r2,t);
+                    todo_OK = t.borrar_tag(c.etiqueta(1));
+                    if(todo_OK) todo_OK = a.modificar_tarea(r1,r2,t);
                 } else if(tipus == "tasca"){ // Borrar tarea
                     cout << "\t tasca..." << endl;
                     cout << "imprimendo Reloj...     " ; r1.imprimir_Reloj();

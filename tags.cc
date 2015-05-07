@@ -20,14 +20,25 @@ bool Tags::search_tag(const string &tag)
     return it != lista.end();
 }
 
-void Tags::add_tag(const string &tag)
+bool Tags::add_tag(const string &tag)
 {
-    lista.insert(pair<string,bool>(tag,false));
+    bool todo_ok = false;
+    std::pair<std::map<string,bool>::iterator,bool> ret;
+    ret = lista.insert(pair<string,bool>(tag,false));
+    if(ret.second) todo_ok = true;
+
+    return todo_ok;
 }
 
-void Tags::borrar_tag(const string &tag)
+bool Tags::borrar_tag(const string &tag)
 {
-    lista.erase(lista.find(tag));
+    bool todo_ok = false;
+    map<string,bool>::iterator it (lista.find(tag));
+    if(it != lista.end()){
+        todo_ok = true;
+        lista.erase(it);
+    }
+    return todo_ok;
 }
 
 void Tags::imprimir_tags()
