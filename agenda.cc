@@ -33,6 +33,7 @@ void Agenda::imprimir_menu(const map<Reloj,Tarea> &lista_tareas){
         ta.get_tags().imprimir_tags();
         cout << endl;
         ++it;
+        ++pos;
     }
 }
 
