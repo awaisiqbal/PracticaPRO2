@@ -24,22 +24,28 @@ int main()
                     string expr = "*";
                     if(c.nombre_dates()!=0 or c.te_expressio() or c.te_hora() or c.nombre_etiquetes() != 0){
                         if(c.nombre_dates() > 0 ){
-                            Reloj r(c.data(1));
-                            Reloj r2(c.data(1));
+                            r.modificar_fecha(c.data(1));
+                            r2.modificar_fecha(c.data(1));
                             if(c.nombre_dates() == 2) r2.modificar_fecha(c.data(2));
                             if(c.te_hora()){
                                 r.modificar_hora(c.hora());
                                 r2.modificar_hora(c.hora());
-                            } else {
-                                r.modificar_hora("00:00");
-                                r2.modificar_hora("23:59");
                             }
+
+                            if(r2<a.consultar_RelojActual()){ // caso r < hora_actual y r2 > hora_actual -> solo imprimero [hora_actual,r2]
+                                r2 = a.consultar_RelojActual();
+                            }
+
                         }
                         if(c.te_expressio()){
                             expr = c.expressio();
                         } else if (c.nombre_etiquetes() == 1){ //TODO comprobar si se puede poner mas etiquetas
                             expr = c.etiqueta(1);
                         }
+                        cout << endl; cout << endl;
+                        r.imprimir_Reloj();
+                        cout << endl;
+                        r2.imprimir_Reloj();
                     } else if (c.es_passat()){ // 'passat?'
                         cout << "\tpassat?" << endl;
                         r2 = a.consultar_RelojActual();
@@ -48,20 +54,26 @@ int main()
                         cout << "\t?" << endl;
                         r = a.consultar_RelojActual();
                     }
-                todo_OK = a.buscar_tarea_intervalo(r,r2,expr,v);
-                if(todo_OK) a.imprimir_menu(v);
+
+                    if(!(r2<r)){ //caso que r2 sea menor que r no se hace nada
+                        todo_OK = a.buscar_tarea_intervalo(r,r2,expr,v);
+                        if(todo_OK) a.imprimir_menu(v);
+                    }
+
                 } else { // "RELLOTGE?"
                     Reloj r = a.consultar_RelojActual();
-                    cout << r.consultar_fecha() << "   " << r.consultar_hora() << endl;
+                    r.imprimir_Reloj();
                 }
             } else if (c.es_modificacio()){
                 cout << "ES MODIFICACIO! " << endl;
                 // Pre: se ha realizado una consulta anteriormente
-                int tasca = c.tasca();
+                int tasca = c.tasca()-1;
+                cout << "tasca: " << tasca << "\tsize: " << v.size() << endl;
                 if(tasca < v.size()){
                     map<Reloj,Tarea>::iterator it(v.begin());
                     advance(it,tasca); // selecionamos la tarea
                     Reloj r1 = it->first;
+                    r1.imprimir_Reloj();
                     Reloj r2 = it->first;
                     Tarea t = it->second;
                     if(c.te_titol()){
@@ -76,6 +88,7 @@ int main()
                     if(c.nombre_etiquetes() != 0){
                         t.anadir_tag(c.etiqueta(1));
                     }
+                    cout << "nuevo titulo: "<< t.get_titulo()<< endl;
                     todo_OK = a.modificar_tarea(r1,r2,t);
                 } else {
                     todo_OK = false;
@@ -101,7 +114,7 @@ int main()
 
                 todo_OK = a.anadir_tarea(r,tarea);
                 //TODO borrar la siguiente linia despues de pruebas
-            a.imprimir_menu_actual();
+                //a.imprimir_menu_actual();
                 //TODO
 
             } else if (c.es_rellotge()){
@@ -120,16 +133,16 @@ int main()
                     //if(todo_OK) cout << "\tTodo OK!" << endl;
                 } else { // caso consulta
                     r = a.consultar_RelojActual();
-                    cout << r.consultar_fecha() << "   " << r.consultar_hora() << endl;
+                    r.imprimir_Reloj();
                 }
             } else if (c.es_esborrat()) { //esborrat
                 cout << "ES ESBORRAT! " << endl;
                 string tipus = c.tipus_esborrat();
                 // Pre: se ha realizado una consulta anteriormente
-                int tasca = c.tasca();
+                int tasca = c.tasca()-1;
 
                 map<Reloj,Tarea>::iterator it(v.begin());
-                advance(it,tasca); // selecionamos la tarea
+                advance(it,tasca-1); // selecionamos la tarea
                 Reloj r1 = it->first;
                 Reloj r2 = it->first;
                 Tarea t = it->second;
@@ -145,6 +158,7 @@ int main()
                     todo_OK = a.modificar_tarea(r1,r2,t);
                 } else if(tipus == "tasca"){ // Borrar tarea
                     cout << "\t tasca..." << endl;
+                    cout << "imprimendo Reloj...     " ; r1.imprimir_Reloj();
                     todo_OK = a.borrar_tarea(r1,t);
                 }
 

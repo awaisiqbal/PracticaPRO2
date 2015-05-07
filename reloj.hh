@@ -5,6 +5,7 @@
 #ifndef RELOJ_HH
 #define RELOJ_HH
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ class Reloj {
 
 private:
     string fecha, hora;
-    string dar_vuelta(string fecha);
+    string dar_vuelta(string fecha) const;
 
 
 public:
@@ -31,13 +32,6 @@ public:
         \post crea el reloj inicial con hora "00:00" y dia "20.04.15".
     */
     Reloj();
-
-    /** @brief Crea un reloj con fecha y hora, uno con valor predeterminado y el otro con valor asignado
-        \pre cierto
-        \post si el parámetro es un dia, crea un reloj con dia con valor del parámetro y hora "00:00",
-              si el parámetro es una hora, crea un reloj con dia "20.04.15" y hora con valor del parámetro
-    */
-    Reloj(string fechaHora);
 
     /** @brief Crea un reloj con fecha asignada
         \pre cierto
@@ -63,13 +57,6 @@ public:
 
     //Consultores
 
-
-    /** @brief consulta si el roloj actual es menor que el reloj introducido
-        \pre el reloj tiene hora y dia
-        \post falso si la fecha por parametro es mayor, cierto si la fecha por parametro es menor
-    */
-    bool es_menor(const Reloj &r);
-
     /** @brief Consulta si una dia es menor al dia del reloj interno
         \pre el reloj tiene dia
         \post falso si el dia por parametro es mayor, cierto si el dia por parametro es menor
@@ -86,14 +73,17 @@ public:
        \pre el reloj tiene dia
        \post devuelve el dia del reloj
     */
-    string consultar_fecha();
+    string consultar_fecha() const;
 
     /** @brief Consulta la hora del reloj
        \pre el reloj tiene hora
        \post devuelve la hora del reloj
     */
-    string consultar_hora();
+    string consultar_hora() const;
 
+    /** @brief Imprime la fecha y hora actual DD/MM/AA hh:mm
+     */
+    void imprimir_Reloj() const;
 
     bool operator<( const Reloj& other) const {
         if(this->fecha < other.fecha){

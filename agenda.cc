@@ -55,29 +55,31 @@ bool Agenda::anadir_tarea(const Reloj &r, const Tarea &t){
 
 bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tarea &t){
     bool todo_ok = false;
-    if(reloj1<reloj2 and tiempo_actual<reloj1){
+    if(tiempo_actual<reloj1){
         map<Reloj,Tarea>::iterator it(horario.find(reloj2));
-        if(it == horario.end()){
-            if(not( reloj1 == reloj2)){
-                if(borrar_tarea(reloj1,t)){
-                    todo_ok = anadir_tarea(reloj2,t);
-                    todo_ok = true;
-                }
-            } else {
-                horario[reloj1] = t;
+        if(not( reloj1 == reloj2) and it == horario.end()){
+            cout << "modificación de reloj!" << endl;
+            if(borrar_tarea(reloj1,t)){
+                todo_ok = anadir_tarea(reloj2,t);
                 todo_ok = true;
             }
 
+        } else {
+                cout << "Modificacion de tarea!" << endl;
+                horario[reloj1] = t;
+                todo_ok = true;
         }
 
     }
+
+
     return todo_ok;
 }
 
 bool Agenda::borrar_tarea(const Reloj &r, const Tarea &t){
     bool todo_ok = true;
     map<Reloj,Tarea>::iterator it(horario.find(r));
-    if(r<tiempo_actual and it != horario.end()){
+    if(tiempo_actual<r and it != horario.end()){ // comprobar si la tarea es del futuro y si se ha encontrado
         horario.erase(r);
     } else {
         todo_ok = false;
