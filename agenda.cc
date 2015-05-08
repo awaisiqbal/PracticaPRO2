@@ -11,11 +11,16 @@ void Agenda::comprobar_expr(map<Reloj,Tarea> &map,const string &expr){
     }
 }
 
-bool Agenda::buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr,map<Reloj,Tarea> &mymap) {
+bool Agenda::buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr,map<Reloj,Tarea> &mymap,bool excluir_ultimo) {
     map<Reloj,Tarea>::const_iterator it1 = horario.lower_bound(reloj1);
     if(it1 != horario.end()){
         map<Reloj,Tarea>::const_iterator it2 = horario.upper_bound(reloj2);
         map<Reloj,Tarea> aux (it1,it2);
+        if (excluir_ultimo and aux.size() != 0) {
+            map<Reloj,Tarea>::iterator itUltimo = aux.end();
+            --itUltimo;
+            if(itUltimo->first == reloj2) aux.erase(itUltimo);
+        }
         comprobar_expr(aux,expr);
         mymap = aux;
         return true;

@@ -43,7 +43,7 @@ public:
              contenga una expresion con condiciones AND y OR.
         \post El resultado es un map<Reloj,Tarea> donde están todas las tareas que hay en ese intervalo y que cumpla la expresión
      */
-    bool buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr, map<Reloj,Tarea> &map) ;
+    bool buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr, map<Reloj,Tarea> &map,bool excluir_ultimo) ;
 
 
     void comprobar_expr(map<Reloj,Tarea> &map,const string &expr);

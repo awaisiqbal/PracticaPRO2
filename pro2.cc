@@ -22,6 +22,7 @@ int main()
                     Reloj r("00/00/00","00:00");
                     Reloj r2("31/12/99","23:59");
                     string expr = "*";
+                    bool excluir_ultimo = false;
                     if(c.nombre_dates()!=0 or c.te_expressio() or c.te_hora() or c.nombre_etiquetes() != 0){
                         if(c.nombre_dates() > 0 ){
                             r.modificar_fecha(c.data(1));
@@ -45,6 +46,7 @@ int main()
                     } else if (c.es_passat()){ // 'passat?'
                         cout << "\tpassat?" << endl;
                         r2 = a.consultar_RelojActual();
+                        excluir_ultimo = true;
                     }else { // '?'
                         //TODO falta excluir tareas que sea con la hroa == tiempo actual
                         cout << "\t?" << endl;
@@ -52,7 +54,7 @@ int main()
                     }
 
                     if(!(r2<r)){ //caso que r2 sea menor que r no se hace nada
-                        todo_OK = a.buscar_tarea_intervalo(r,r2,expr,v);
+                        todo_OK = a.buscar_tarea_intervalo(r,r2,expr,v,excluir_ultimo);
                         if(todo_OK) a.imprimir_menu(v);
                     }
 
@@ -137,26 +139,29 @@ int main()
                 // Pre: se ha realizado una consulta anteriormente
                 int tasca = c.tasca()-1;
                 cout << "tasca:   " << endl;
+                if(tasca <= v.size()-1){ // comprobar posicion correcta!
+                    map<Reloj,Tarea>::iterator it(v.begin());
+                    advance(it,tasca); // selecionamos la tarea
+                    Reloj r1 = it->first;
+                    Reloj r2 = it->first;
+                    Tarea t = it->second;
 
-                map<Reloj,Tarea>::iterator it(v.begin());
-                advance(it,tasca); // selecionamos la tarea
-                Reloj r1 = it->first;
-                Reloj r2 = it->first;
-                Tarea t = it->second;
-
-                if(tipus == "etiquetes"){
-                    cout << "\t etiquetes..." << endl;
-                    Tags tags;
-                    t.set_tags(tags);
-                    todo_OK = a.modificar_tarea(r1,r2,t);
-                } else if(tipus == "etiqueta"){
-                    cout << "\t etiqueta..." << endl;
-                    todo_OK = t.borrar_tag(c.etiqueta(1));
-                    if(todo_OK) todo_OK = a.modificar_tarea(r1,r2,t);
-                } else if(tipus == "tasca"){ // Borrar tarea
-                    cout << "\t tasca..." << endl;
-                    cout << "imprimendo Reloj...     " ; r1.imprimir_Reloj();
-                    todo_OK = a.borrar_tarea(r1,t);
+                    if(tipus == "etiquetes"){
+                        cout << "\t etiquetes..." << endl;
+                        Tags tags;
+                        t.set_tags(tags);
+                        todo_OK = a.modificar_tarea(r1,r2,t);
+                    } else if(tipus == "etiqueta"){
+                        cout << "\t etiqueta..." << endl;
+                        todo_OK = t.borrar_tag(c.etiqueta(1));
+                        if(todo_OK) todo_OK = a.modificar_tarea(r1,r2,t);
+                    } else if(tipus == "tasca"){ // Borrar tarea
+                        cout << "\t tasca..." << endl;
+                        cout << "imprimendo Reloj...     " ; r1.imprimir_Reloj();
+                        todo_OK = a.borrar_tarea(r1,t);
+                    }
+                } else {
+                    todo_OK = false;
                 }
 
             }
