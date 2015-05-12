@@ -56,5 +56,5 @@ bool Reloj::hora_menor(string hora)
 }
 
 void Reloj::imprimir_Reloj() const{
-    cout << this->consultar_fecha() << "\t" << this->consultar_hora() << endl;
+    cout << this->consultar_fecha() << " " << this->consultar_hora() << endl;
 }

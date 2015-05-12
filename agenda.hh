@@ -21,6 +21,7 @@ private:
     Reloj tiempo_actual;
     map<Reloj,Tarea> horario;
 
+
 public:
     /* Constructoras */
 
@@ -89,6 +90,8 @@ public:
 
 
     bool modificar_RelojActual(Reloj r);
+
+    bool tratar_expr(string s, Tarea &t);
 
 };
 

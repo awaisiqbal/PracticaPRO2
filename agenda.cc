@@ -5,9 +5,18 @@ Agenda::Agenda()
 
 }
 
-void Agenda::comprobar_expr(map<Reloj,Tarea> &map,const string &expr){
+void Agenda::comprobar_expr(map<Reloj,Tarea> &mymap,const string &expr){
     if(expr != "*"){
-        //TODO comprobar las demas condiciones
+        map<Reloj,Tarea>::iterator it = mymap.begin();
+        while(it != mymap.end()){
+            Tarea ta = it->second;
+            bool cumple_expr = tratar_expr(expr,ta);
+            if(!cumple_expr){
+                mymap.erase(it++);
+            } else {
+                ++it;
+            }
+        }
     }
 }
 
@@ -63,14 +72,14 @@ bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tar
     if(tiempo_actual<reloj1){
         map<Reloj,Tarea>::iterator it(horario.find(reloj2));
         if(not( reloj1 == reloj2) and it == horario.end()){
-            cout << "modificación de reloj!" << endl;
+            //cout << "modificación de reloj!" << endl;
             if(borrar_tarea(reloj1,t)){
                 todo_ok = anadir_tarea(reloj2,t);
                 todo_ok = true;
             }
 
         } else {
-                cout << "Modificacion de tarea!" << endl;
+                //cout << "Modificacion de tarea!" << endl;
                 horario[reloj1] = t;
                 todo_ok = true;
         }
@@ -99,10 +108,33 @@ Reloj Agenda::consultar_RelojActual(){
 
 bool Agenda::modificar_RelojActual(Reloj r){
     bool todo_ok = true;
-    if(tiempo_actual<r){
+    if(tiempo_actual<=r){
         tiempo_actual = r;
     } else {
         todo_ok = false;
     }
     return todo_ok;
+}
+
+
+bool Agenda::tratar_expr(string s, Tarea &t){
+    if(s[0] == '#'){
+        return t.contiene_tag(s);
+    } else {
+        bool reg_expr = false;
+        int nivel = 0;
+        int i= s.length() -2;
+        while(i >= 0 and not reg_expr){
+            if(s[i]== ')') ++nivel;
+            else if(s[i]== '(') --nivel;
+            if((s[i]== '.' or s[i] == ',') and nivel == 0) reg_expr = true;
+            --i;
+        }
+        string s1, s2;
+        char op = s[i+1];
+        s1 = s.substr(1,i);
+        s2 = s.substr(i+2,s.length()-i-3);
+        if(op == '.') return (tratar_expr(s1,t) and tratar_expr(s2,t));
+        else return (tratar_expr(s1,t) or tratar_expr(s2,t));
+    }
 }
