@@ -21,11 +21,12 @@ void Agenda::comprobar_expr(map<Reloj,Tarea> &mymap,const string &expr){
 }
 
 bool Agenda::buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr,map<Reloj,Tarea> &mymap,bool excluir_ultimo) {
+    mymap.clear();
     map<Reloj,Tarea>::const_iterator it1 = horario.lower_bound(reloj1);
     if(it1 != horario.end()){
         map<Reloj,Tarea>::const_iterator it2 = horario.upper_bound(reloj2);
         map<Reloj,Tarea> aux (it1,it2);
-        if (excluir_ultimo and aux.size() != 0) {
+        if (excluir_ultimo and aux.size() != 0) {//Se exluye el último por el return de upper_bound que incluye el valor de reloj2
             map<Reloj,Tarea>::iterator itUltimo = aux.end();
             --itUltimo;
             if(itUltimo->first == reloj2) aux.erase(itUltimo);
@@ -39,15 +40,17 @@ bool Agenda::buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,cons
 
 void Agenda::imprimir_menu(const map<Reloj,Tarea> &lista_tareas){
     map<Reloj,Tarea>::const_iterator it(lista_tareas.begin());
-    int pos = 1;
-    while(it != lista_tareas.end()){
-        Reloj r = it->first;
-        Tarea ta = it->second;
-        cout << pos << " " << ta.get_titulo() << " " << r.consultar_fecha() << " " << r.consultar_hora();
-        ta.get_tags().imprimir_tags();
-        cout << endl;
-        ++it;
-        ++pos;
+    if(it != lista_tareas.end()){
+        int pos = 1;
+        while(it != lista_tareas.end()){
+            Reloj r = it->first;
+            Tarea ta = it->second;
+            cout << pos << " " << ta.get_titulo() << " " << r.consultar_fecha() << " " << r.consultar_hora();
+            ta.get_tags().imprimir_tags();
+            cout << endl;
+            ++it;
+            ++pos;
+        }
     }
 }
 
