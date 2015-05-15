@@ -6,13 +6,20 @@ rellotge 21.04.15 18:30
 passat?
 1 no anar al cine #bla
 ?
+3 exmaen2
+?
 1 22.04.15 20:00 ploo
+1 05.04.15 20:00 PIM
 ?
 50 no existe
 rellotge 22.04.15 15:00
 ?
-rellotge 21:00
+rellotge 20:01
 1 no hay cumple
++ bailar 07.06.15 12:00
+?
+-2
+2 no bialar
 ?
 passat?
 sortir

@@ -30,12 +30,6 @@ CONSULTA TAREA
 	comrpobar qeu se pueda buscar solo por expresiones sin fechas
 	comprobar que las buscaquedas sin resultados no impriman nada
 
-/* PREGUNTAR
-En particular, les consultes amb etiquetes que no pertanyen a
-l'agenda no produiran cap missatge d'error sino el menu resultant, que pot
-ser buit o no (Fxeu-vos que una disjuncio amb una tasca que no es a l'agenda
-podria donar un menu no buit).
-*/
 
 MODIFICAR TAREA
 	comrobar que solo se pueda modificar tareas del futuro

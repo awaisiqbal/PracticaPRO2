@@ -84,10 +84,14 @@ bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tar
                 todo_ok = true;
             }
 
+        } else if (not( reloj1 == reloj2) and it != horario.end()) {
+            todo_ok = false;
         } else {
-                //cout << "Modificacion de tarea!" << endl;
-                horario[reloj1] = t;
-                todo_ok = true;
+            horario[reloj1] = t;
+            todo_ok = true;
+
+
+
         }
 
     }

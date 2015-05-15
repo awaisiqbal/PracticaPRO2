@@ -160,6 +160,7 @@ int main()
                         //cout << "\t tasca..." << endl;
                         //cout << "imprimendo Reloj...     " ; r1.imprimir_Reloj();
                         todo_OK = a.borrar_tarea(r1,t);
+
                     }
                 } else {
                     todo_OK = false;
