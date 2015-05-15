@@ -60,19 +60,22 @@ void Agenda::imprimir_menu_actual()
 }
 
 bool Agenda::anadir_tarea(const Reloj &r, const Tarea &t){
-    std::pair<std::map<Reloj,Tarea>::iterator,bool> ret;
-    ret = horario.insert(std::pair<Reloj,Tarea>(r,t));
-    bool todo_ok = true;
-    if(not ret.second){
-        todo_ok = false;
+    bool todo_ok = tiempo_actual <= r;
+    if(todo_ok){
+        std::pair<std::map<Reloj,Tarea>::iterator,bool> ret;
+        ret = horario.insert(std::pair<Reloj,Tarea>(r,t));
+        if(not ret.second){
+            todo_ok = false;
+        }
     }
     return todo_ok;
-
 }
 
 bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tarea &t){
     bool todo_ok = false;
-    if(tiempo_actual<reloj1){
+    if(reloj1 < tiempo_actual or reloj2 < tiempo_actual){
+        return false;
+    }else{
         map<Reloj,Tarea>::iterator it(horario.find(reloj2));
         if(not( reloj1 == reloj2) and it == horario.end()){
             //cout << "modificación de reloj!" << endl;

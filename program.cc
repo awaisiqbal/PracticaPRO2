@@ -97,11 +97,9 @@ int main()
 
             } else if (c.es_insercio()){
                 //cout << "ES INSERCIO! " << endl;
-                Reloj r;
-                if(c.nombre_dates() == 1){
+                Reloj r = a.consultar_RelojActual();
+                if(c.nombre_dates() != 0){
                     r.modificar_fecha(c.data(1));
-                } else {
-                    r = a.consultar_RelojActual();
                 }
                 r.modificar_hora(c.hora());
                 Tags tags;
