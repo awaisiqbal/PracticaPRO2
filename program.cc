@@ -14,7 +14,7 @@ int main()
     Agenda a;
     bool be = false;
     map<Reloj,Tarea> v;
-    vector<Reloj> vectorModificado;
+    map<Reloj,Reloj> relojParaBuscar;
     while(c.llegir(be)){
         bool todo_OK = true;
         if(be){
@@ -59,6 +59,7 @@ int main()
 
                     if(!(r2<r) and intervalo_correcto){ //caso que r2 sea menor que r no se hace nada
                         a.buscar_tarea_intervalo(r,r2,expr,v,excluir_ultimo);
+                        relojParaBuscar.clear();
                         a.imprimir_menu(v);
                     }
 
@@ -90,6 +91,19 @@ int main()
                     if(c.nombre_etiquetes() != 0){
                         t.anadir_tag(c.etiqueta(1));//TODO solo se puede añadir mas de 1 ?
                     }
+
+                    /* BUSCAR si se ha modificado anteriormente */
+
+                    map<Reloj,Reloj>::iterator it1(relojParaBuscar.find(r1));
+                    if(it1 == relojParaBuscar.end() and (c.nombre_dates()!= 0 or c.te_hora())){
+                        //caso dodne no se encuentra el reloj y que se ha modificado fecha o reloj
+                        relojParaBuscar.insert(std::pair<Reloj,Reloj>(r1,r2));
+                    } else {
+                        if(it1 != relojParaBuscar.end()){
+                            r1 = it1->second;
+                        }
+                    }
+                    /* TERMINA buscar cambio de reloj */
                     todo_OK = a.modificar_tarea(r1,r2,t);
                 } else {
                     todo_OK = false;
