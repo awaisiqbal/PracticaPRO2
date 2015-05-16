@@ -6,6 +6,7 @@
 #include "reloj.hh"
 #include "tarea.hh"
 #include "tags.hh"
+#include <vector>
 
 int main()
 {
@@ -13,6 +14,7 @@ int main()
     Agenda a;
     bool be = false;
     map<Reloj,Tarea> v;
+    vector<Reloj> vectorModificado;
     while(c.llegir(be)){
         bool todo_OK = true;
         if(be){
@@ -22,7 +24,7 @@ int main()
                     Reloj r("00/00/00","00:00");
                     Reloj r2("31/12/99","23:59");
                     string expr = "*";
-                    bool excluir_ultimo = false;
+                    bool excluir_ultimo = false,intervalo_correcto = true;
                     if(c.nombre_dates()!=0 or c.te_expressio() or c.te_hora() or c.nombre_etiquetes() != 0){
                         if(c.nombre_dates() > 0 ){
                             r.modificar_fecha(c.data(1));
@@ -33,10 +35,13 @@ int main()
                                 r2.modificar_hora(c.hora());
                             }
 
-                            if(r2<a.consultar_RelojActual()){ // caso r < hora_actual y r2 > hora_actual -> solo imprimero [hora_actual,r2]
-                                r2 = a.consultar_RelojActual();
+                            if((r2<a.consultar_RelojActual() and r < a.consultar_RelojActual()) or r2<r  ){ // caso r < hora_actual y r2 > hora_actual -> solo imprimero [hora_actual,r2]
+                                intervalo_correcto = false;
                             }
 
+                        }
+                        if(r < a.consultar_RelojActual()){
+                            r = a.consultar_RelojActual();
                         }
                         if(c.te_expressio()){
                             expr = c.expressio();
@@ -44,22 +49,19 @@ int main()
                             expr = c.etiqueta(1);
                         }
                     } else if (c.es_passat()){ // 'passat?'
-                        //cout << "\tpassat?" << endl;
+                        //cout << "passat?" << endl;
                         r2 = a.consultar_RelojActual();
                         excluir_ultimo = true;
                     }else { // '?'
-                        //cout << "\t?" << endl;
+                        //cout << "?" << endl;
                         r = a.consultar_RelojActual();
                     }
 
-                    if(!(r2<r)){ //caso que r2 sea menor que r no se hace nada
-                        /*todo_OK = a.buscar_tarea_intervalo(r,r2,expr,v,excluir_ultimo);
-                        if(todo_OK) a.imprimir_menu(v);*/
-                        //TODO probando..
+                    if(!(r2<r) and intervalo_correcto){ //caso que r2 sea menor que r no se hace nada
                         a.buscar_tarea_intervalo(r,r2,expr,v,excluir_ultimo);
                         a.imprimir_menu(v);
-
                     }
+
 
                 } else { // "RELLOTGE?"
                     Reloj r = a.consultar_RelojActual();
@@ -74,7 +76,6 @@ int main()
                     map<Reloj,Tarea>::iterator it(v.begin());
                     advance(it,tasca); // selecionamos la tarea
                     Reloj r1 = it->first;
-                    //r1.imprimir_Reloj(); // cout
                     Reloj r2 = it->first;
                     Tarea t = it->second;
                     if(c.te_titol()){
@@ -89,7 +90,6 @@ int main()
                     if(c.nombre_etiquetes() != 0){
                         t.anadir_tag(c.etiqueta(1));//TODO solo se puede añadir mas de 1 ?
                     }
-                    //cout << "nuevo titulo: "<< t.get_titulo()<< endl;
                     todo_OK = a.modificar_tarea(r1,r2,t);
                 } else {
                     todo_OK = false;

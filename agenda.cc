@@ -73,18 +73,19 @@ bool Agenda::anadir_tarea(const Reloj &r, const Tarea &t){
 
 bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tarea &t){
     bool todo_ok = false;
-    if(reloj1 < tiempo_actual or reloj2 < tiempo_actual){
+    map<Reloj,Tarea>::iterator it1(horario.find(reloj1));
+    if(reloj1 < tiempo_actual or reloj2 < tiempo_actual or it1 == horario.end()){
         return false;
     }else{
-        map<Reloj,Tarea>::iterator it(horario.find(reloj2));
-        if(not( reloj1 == reloj2) and it == horario.end()){
+        map<Reloj,Tarea>::iterator it2(horario.find(reloj2));
+        if(not( reloj1 == reloj2) and it2 == horario.end()){
             //cout << "modificación de reloj!" << endl;
             if(borrar_tarea(reloj1,t)){
                 todo_ok = anadir_tarea(reloj2,t);
                 todo_ok = true;
             }
 
-        } else if (not( reloj1 == reloj2) and it != horario.end()) {
+        } else if (not( reloj1 == reloj2) and it2 != horario.end()) {
             todo_ok = false;
         } else {
             horario[reloj1] = t;
