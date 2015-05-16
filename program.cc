@@ -30,10 +30,6 @@ int main()
                             r.modificar_fecha(c.data(1));
                             r2.modificar_fecha(c.data(1));
                             if(c.nombre_dates() == 2) r2.modificar_fecha(c.data(2));
-                            if(c.te_hora()){
-                                r.modificar_hora(c.hora());
-                                r2.modificar_hora(c.hora());
-                            }
 
                             if((r2<a.consultar_RelojActual() and r < a.consultar_RelojActual()) or r2<r  ){ // caso r < hora_actual y r2 > hora_actual -> solo imprimero [hora_actual,r2]
                                 intervalo_correcto = false;
@@ -44,8 +40,9 @@ int main()
                             r = a.consultar_RelojActual();
                         }
                         if(c.te_expressio()){
+                            cout << "tiene expr" << endl;
                             expr = c.expressio();
-                        } else if (c.nombre_etiquetes() == 1){ //TODO comprobar si se puede poner mas etiquetas
+                        } else if (c.nombre_etiquetes() == 1){
                             expr = c.etiqueta(1);
                         }
                     } else if (c.es_passat()){ // 'passat?'
