@@ -6,7 +6,6 @@
 #include "reloj.hh"
 #include "tarea.hh"
 #include "tags.hh"
-#include <vector>
 
 int main()
 {
@@ -25,7 +24,7 @@ int main()
                     Reloj r2("31/12/99","23:59");
                     string expr = "*";
                     bool excluir_ultimo = false,intervalo_correcto = true;
-                    if(c.nombre_dates()!=0 or c.te_expressio() or c.te_hora() or c.nombre_etiquetes() != 0){
+                    if(c.nombre_dates()!=0 or c.te_expressio() or c.nombre_etiquetes() != 0){
                         if(c.nombre_dates() > 0 ){
                             r.modificar_fecha(c.data(1));
                             r2.modificar_fecha(c.data(1));
@@ -40,7 +39,6 @@ int main()
                             r = a.consultar_RelojActual();
                         }
                         if(c.te_expressio()){
-                            cout << "tiene expr" << endl;
                             expr = c.expressio();
                         } else if (c.nombre_etiquetes() == 1){
                             expr = c.etiqueta(1);
@@ -69,7 +67,6 @@ int main()
                 //cout << "ES MODIFICACIO! " << endl;
                 // Pre: se ha realizado una consulta anteriormente
                 int tasca = c.tasca()-1;
-                //cout << "tasca: " << tasca << "\tsize: " << v.size() << endl;
                 if(tasca < v.size()){
                     map<Reloj,Tarea>::iterator it(v.begin());
                     advance(it,tasca); // selecionamos la tarea
@@ -86,7 +83,7 @@ int main()
                         r2.modificar_fecha(c.data(1));
                     }
                     if(c.nombre_etiquetes() != 0){
-                        t.anadir_tag(c.etiqueta(1));//TODO solo se puede añadir mas de 1 ?
+                        t.anadir_tag(c.etiqueta(1));
                     }
 
                     /* BUSCAR si se ha modificado anteriormente */
@@ -102,6 +99,7 @@ int main()
                     }
                     /* TERMINA buscar cambio de reloj */
                     todo_OK = a.modificar_tarea(r1,r2,t);
+                    if(todo_OK) it->second = t;
                 } else {
                     todo_OK = false;
                 }
@@ -123,9 +121,6 @@ int main()
                 Tarea tarea(c.titol(),tags);
 
                 todo_OK = a.anadir_tarea(r,tarea);
-                //TODO borrar la siguiente linia despues de pruebas
-                //a.imprimir_menu_actual();
-                //TODO
 
             } else if (c.es_rellotge()){
                 //cout << "ES RELLOTGE! " << endl;
@@ -156,6 +151,12 @@ int main()
                     advance(it,tasca); // selecionamos la tarea
                     Reloj r1 = it->first;
                     Reloj r2 = it->first;
+
+                    map<Reloj,Reloj>::iterator it1(relojParaBuscar.find(r1));
+                    if(it1 != relojParaBuscar.end()){
+                        r1 = it1->second;//cambiar el reloj por si se ha modificado
+                    }
+
                     Tarea t = it->second;
 
                     if(tipus == "etiquetes"){
@@ -178,7 +179,6 @@ int main()
                 }
 
             }
-        //if(todo_OK) cout << "Si s'ha realitzat" << endl;
         if(not todo_OK) cout << "No s'ha realitzat" << endl;
 
         }

@@ -80,6 +80,8 @@ public:
     */
     bool borrar_tag(const string &tag);
 
+    bool tratar_expr(string s);
+
 };
 
 #endif // TAREA_HH

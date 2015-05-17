@@ -45,7 +45,8 @@ void Tags::imprimir_tags()
 {
     map<string,bool>::iterator it(lista.begin());
     while(it != lista.end()){
-        cout << " " << it->first ;
+        cout << " ";
+        cout << it->first ;
         ++it;
     }
 }

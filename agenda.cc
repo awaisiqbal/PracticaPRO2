@@ -10,7 +10,7 @@ void Agenda::comprobar_expr(map<Reloj,Tarea> &mymap,const string &expr){
         map<Reloj,Tarea>::iterator it = mymap.begin();
         while(it != mymap.end()){
             Tarea ta = it->second;
-            bool cumple_expr = tratar_expr(expr,ta);
+            bool cumple_expr = ta.tratar_expr(expr);
             if(!cumple_expr){
                 mymap.erase(it++);
             } else {
@@ -84,17 +84,12 @@ bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tar
                 todo_ok = anadir_tarea(reloj2,t);
                 todo_ok = true;
             }
-
         } else if (not( reloj1 == reloj2) and it2 != horario.end()) {
             todo_ok = false;
         } else {
             horario[reloj1] = t;
             todo_ok = true;
-
-
-
         }
-
     }
 
 
@@ -104,7 +99,7 @@ bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tar
 bool Agenda::borrar_tarea(const Reloj &r, const Tarea &t){
     bool todo_ok = true;
     map<Reloj,Tarea>::iterator it(horario.find(r));
-    if(tiempo_actual<r and it != horario.end()){ // comprobar si la tarea es del futuro y si se ha encontrado
+    if(it != horario.end()){ // comprobar si la tarea es del futuro y si se ha encontrado
         horario.erase(r);
     } else {
         todo_ok = false;
@@ -127,25 +122,3 @@ bool Agenda::modificar_RelojActual(Reloj r){
     return todo_ok;
 }
 
-
-bool Agenda::tratar_expr(string s, Tarea &t){
-    if(s[0] == '#'){
-        return t.contiene_tag(s);
-    } else {
-        bool reg_expr = false;
-        int nivel = 0;
-        int i= s.length() -2;
-        while(i >= 0 and not reg_expr){
-            if(s[i]== ')') ++nivel;
-            else if(s[i]== '(') --nivel;
-            if((s[i]== '.' or s[i] == ',') and nivel == 0) reg_expr = true;
-            --i;
-        }
-        string s1, s2;
-        char op = s[i+1];
-        s1 = s.substr(1,i);
-        s2 = s.substr(i+2,s.length()-i-3);
-        if(op == '.') return (tratar_expr(s1,t) and tratar_expr(s2,t));
-        else return (tratar_expr(s1,t) or tratar_expr(s2,t));
-    }
-}
