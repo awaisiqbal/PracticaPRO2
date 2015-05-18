@@ -86,12 +86,20 @@ public:
      */
     bool borrar_tarea(const Reloj &r, const Tarea &t);
 
+    /** @brief consulta la hora del reloj interno
+
+        \pre cierto
+        \post devuelve la hora interna del reloj
+     */
     Reloj consultar_RelojActual();
 
 
-    bool modificar_RelojActual(Reloj r);
+    /** @brief modifica la hora del reloj interno
 
-    bool tratar_expr(string s, Tarea &t);
+        \pre cierto
+        \post devuelve true si se ha modificado el reloj interno
+     */
+    bool modificar_RelojActual(Reloj r);
 
 };
 

@@ -22,12 +22,11 @@ bool Tags::search_tag(const string &tag)
 
 bool Tags::add_tag(const string &tag)
 {
-    bool todo_ok = false;
-    std::pair<std::map<string,bool>::iterator,bool> ret;
+    std::pair<std::map<string,bool>::iterator,bool> ret;//creamos un pair para recibir el iterador de
+                                                        //la posicion donde se ha guardado y si se ha añadido
     ret = lista.insert(pair<string,bool>(tag,false));
-    if(ret.second) todo_ok = true;
 
-    return todo_ok;
+    return ret.second;
 }
 
 bool Tags::borrar_tag(const string &tag)

@@ -80,6 +80,11 @@ public:
     */
     bool borrar_tag(const string &tag);
 
+    /**
+     * @brief tratar_expr
+       \pre s es una expresion bien formada
+       \post devuelve cierto si cumple la expresion
+     */
     bool tratar_expr(string s);
 
 };
