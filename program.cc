@@ -67,7 +67,7 @@ int main()
                 //cout << "ES MODIFICACIO! " << endl;
                 // Pre: se ha realizado una consulta anteriormente
                 int tasca = c.tasca()-1;
-                if(tasca < v.size()){
+                if(tasca < v.size() and v.size() != 0){
                     map<Reloj,Tarea>::iterator it(v.begin());
                     advance(it,tasca); // selecionamos la tarea
                     Reloj r1 = it->first;
@@ -82,8 +82,8 @@ int main()
                     if(c.nombre_dates() != 0){
                         r2.modificar_fecha(c.data(1));
                     }
-                    if(c.nombre_etiquetes() != 0){
-                        t.anadir_tag(c.etiqueta(1));
+                    for(int i = 1; i <= c.nombre_etiquetes();++i ){
+                        t.anadir_tag(c.etiqueta(i));
                     }
 
                     /* BUSCAR si se ha modificado anteriormente */
@@ -91,7 +91,7 @@ int main()
                     map<Reloj,Reloj>::iterator it1(relojParaBuscar.find(r1));
                     if(it1 == relojParaBuscar.end() and (c.nombre_dates()!= 0 or c.te_hora())){
                         //caso dodne no se encuentra el reloj y que se ha modificado fecha o reloj
-                        relojParaBuscar.insert(std::pair<Reloj,Reloj>(r1,r2));
+                        //relojParaBuscar.insert(std::pair<Reloj,Reloj>(r1,r2));
                     } else {
                         if(it1 != relojParaBuscar.end()){
                             r1 = it1->second;
@@ -99,7 +99,10 @@ int main()
                     }
                     /* TERMINA buscar cambio de reloj */
                     todo_OK = a.modificar_tarea(r1,r2,t);
-                    if(todo_OK) it->second = t;
+                    if(todo_OK){
+                        it->second = t;
+                        relojParaBuscar.insert(std::pair<Reloj,Reloj>(r1,r2));
+                    }
                 } else {
                     todo_OK = false;
                 }
@@ -146,7 +149,7 @@ int main()
                 // Pre: se ha realizado una consulta anteriormente
                 int tasca = c.tasca()-1;
                 //cout << "tasca:   " << endl;
-                if(tasca <= v.size()-1){ // comprobar posicion correcta!
+                if(tasca <= v.size()-1 and v.size() != 0){ // comprobar posicion correcta!
                     map<Reloj,Tarea>::iterator it(v.begin());
                     advance(it,tasca); // selecionamos la tarea
                     Reloj r1 = it->first;
@@ -164,10 +167,16 @@ int main()
                         Tags tags;
                         t.set_tags(tags);
                         todo_OK = a.modificar_tarea(r1,r2,t);
+                        if(todo_OK){
+                            it->second = t;
+                        }
                     } else if(tipus == "etiqueta"){
                         //cout << "\t etiqueta..." << endl;
                         todo_OK = t.borrar_tag(c.etiqueta(1));
-                        if(todo_OK) todo_OK = a.modificar_tarea(r1,r2,t);
+                        if(todo_OK){
+                            todo_OK = a.modificar_tarea(r1,r2,t);
+                            it->second = t;
+                        }
                     } else if(tipus == "tasca"){ // Borrar tarea
                         //cout << "\t tasca..." << endl;
                         //cout << "imprimendo Reloj...     " ; r1.imprimir_Reloj();
