@@ -50,7 +50,7 @@ int main()
                         r = a.consultar_RelojActual();
                     }
 
-                    if(!(r2<r) and intervalo_correcto){ //caso que r2 sea menor que r no se hace nada
+                    if(!(r2<r) and intervalo_correcto){ //caso que r2 sea menor que r o el intervalo no sea correcto no se hace nada
                         a.buscar_tarea_intervalo(r,r2,expr,listaMenu,excluir_ultimo);
                         relojesModificados.clear();//borrar todos los relojes modificados
                         a.imprimir_menu(listaMenu);
@@ -69,6 +69,7 @@ int main()
                     Reloj r1 = it->first;
                     Reloj r2 = it->first;
                     Tarea t = it->second;
+                    //se modifica la tarea con los datos que pasan por comanda
                     if(c.te_titol()){
                         t.set_titulo(c.titol());
                     }
@@ -84,36 +85,31 @@ int main()
 
                     // buscar si se ha modificado anteriormente
                     map<Reloj,Reloj>::iterator it1(relojesModificados.find(r1));
-                    if(it1 == relojesModificados.end() and (c.nombre_dates()!= 0 or c.te_hora())){
-                    } else {
-                        if(it1 != relojesModificados.end()){
+                    if(it1 != relojesModificados.end() ){ // si se ha modificado anteriormente se elige el segundo reloj
                             r1 = it1->second;
-                        }
                     }
                     todo_OK = a.modificar_tarea(r1,r2,t);
                     if(todo_OK){
                         it->second = t;
-                        relojesModificados.insert(std::pair<Reloj,Reloj>(r1,r2));
+                        relojesModificados.insert(std::pair<Reloj,Reloj>(r1,r2));//se guarda el nuevo reloj
                     }
                 } else {
                     todo_OK = false;
                 }
 
             } else if (c.es_insercio()){
-                Reloj r = a.consultar_RelojActual();
-                if(c.nombre_dates() != 0){
+                Reloj r = a.consultar_RelojActual(); // un reloj pro defecto
+                if(c.nombre_dates() != 0){ // si se ha modificado la fecha se cambia
                     r.modificar_fecha(c.data(1));
                 }
-                r.modificar_hora(c.hora());
+                r.modificar_hora(c.hora()); // se modifica la hora
                 Tags tags;
-                if(c.nombre_etiquetes() != 0){
+                if(c.nombre_etiquetes() != 0){ // se añade todos los tags que entren por la comanda
                     for(int i = 1; i <= c.nombre_etiquetes() ; ++i){
                         tags.add_tag(c.etiqueta(i));
                     }
                 }
-
                 Tarea tarea(c.titol(),tags);
-
                 todo_OK = a.anadir_tarea(r,tarea);
 
             } else if (c.es_rellotge()){
@@ -123,7 +119,6 @@ int main()
                         r.modificar_hora(c.hora());
                     }
                     if(c.nombre_dates() != 0){ // caso donde se modifica la fecha
-                        //cout << "\t modificar fecha..." << endl;
                         r.modificar_fecha(c.data(1));
                     }
                     todo_OK = a.modificar_RelojActual(r);
@@ -134,40 +129,35 @@ int main()
             } else if (c.es_esborrat()) { //esborrat
                 string tipus = c.tipus_esborrat();
                 int tasca = c.tasca()-1;
+                todo_OK = false; // por defecto no se ha borrado
                 if(tasca <= listaMenu.size()-1 and listaMenu.size() != 0){ // comprobar posicion correcta!
                     map<Reloj,Tarea>::iterator it(listaMenu.begin());
                     advance(it,tasca); // selecionamos la tarea
-                    Reloj r1 = it->first;
+                    Reloj r1 = it->first;// dos relojes para selecionar intervalos
                     Reloj r2 = it->first;
 
                     map<Reloj,Reloj>::iterator it1(relojesModificados.find(r1));
                     if(it1 != relojesModificados.end()){
                         r1 = it1->second;//cambiar el reloj por si se ha modificado
                     }
-
-                    Tarea t = it->second;
-
+                    Tarea t = it->second; // selecionamos la tarea a borrar o modificar
                     if(tipus == "etiquetes"){// Borrar etiquetas
                         Tags tags;
-                        t.set_tags(tags);
-                        todo_OK = a.modificar_tarea(r1,r2,t);
+                        t.set_tags(tags);// se borran todas las etiquetas
+                        todo_OK = a.modificar_tarea(r1,r2,t);// se modifica la tarea
                         if(todo_OK){
-                            it->second = t;
+                            it->second = t;//se actualiza el menu con las etiquetas
                         }
                     } else if(tipus == "etiqueta"){ // Borrar etiqueta
-                        todo_OK = t.borrar_tag(c.etiqueta(1));
+                        todo_OK = t.borrar_tag(c.etiqueta(1));//se borra la etiqueta selecionada
                         if(todo_OK){
                             todo_OK = a.modificar_tarea(r1,r2,t);
-                            it->second = t;
+                            it->second = t;//actualizar los elementos del menu
                         }
                     } else if(tipus == "tasca"){ // Borrar tarea
-                        todo_OK = a.borrar_tarea(r1,t);
-
+                        todo_OK = a.borrar_tarea(r1);
                     }
-                } else {
-                    todo_OK = false;
                 }
-
             }
         if(not todo_OK) cout << "No s'ha realitzat" << endl;
 

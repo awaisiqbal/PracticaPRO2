@@ -27,11 +27,13 @@ string Reloj::dar_vuelta(string fecha) const
 bool Reloj::modificar_fecha(string fecha)
 {
     this->fecha = dar_vuelta(fecha);
+    return true;
 }
 
 bool Reloj::modificar_hora(string hora)
 {
     this->hora = hora;
+    return true;
 }
 
 

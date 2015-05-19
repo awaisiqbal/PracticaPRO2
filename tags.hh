@@ -7,8 +7,6 @@
 
 #include "reloj.hh"
 #include "map"
-#include <string>
-#include <iostream>
 using namespace std;
 
 /** @class Tags
@@ -64,8 +62,8 @@ public:
 
     /** @brief Borra la etiqueta de la lista
 
-        \pre la etiqueta esta en la lista
-        \post cierto
+        \pre cierto
+        \post borra la etiqueta de la lista
      */
     bool borrar_tag(const string &tag);
 

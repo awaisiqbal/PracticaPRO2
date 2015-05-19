@@ -6,9 +6,7 @@
 
 #include "reloj.hh"
 #include "tarea.hh"
-#include "list"
-#include "map"
-#include <string>
+
 using namespace std;
 
 /** @class Agenda
@@ -40,19 +38,24 @@ public:
 
         \pre <em>reloj1</em> < <em>reloj2</em> y <em>expr</em> es una string que
              puede ser '*' en caso de que no tenga ninguna condición sobre etiquetas,
-             '#<etiqueta>' donde hay una sola etiqueta para buscar o que el strign
+             '#<etiqueta>' donde hay una sola etiqueta para buscar o el string
              contenga una expresion con condiciones AND y OR.
-        \post El resultado es un map<Reloj,Tarea> donde están todas las tareas que hay en ese intervalo y que cumpla la expresión
+        \post El resultado es un map<Reloj,Tarea> donde están todas las tareas que hay en ese intervalo y
+              que cumpla la expresión y excluyendo el ultimo elemento si el excluir_ultimo es cierto
      */
     bool buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr, map<Reloj,Tarea> &map,bool excluir_ultimo) ;
 
+    /** @brief borra todas las tareas que no cumplan la expresion, caso '*' no se borra nada
 
+      \pre <em>expr</em> es un exprecion bien hecha o es un '*'
+      \post modifica el <em>map</em> borrando las tareas que no cumplan la expresion
+     */
     void comprobar_expr(map<Reloj,Tarea> &map,const string &expr);
 
 
     /** @brief Imprime las tareas enumeradas
 
-        \pre lista no vacia
+        \pre cierto
         \post cierto
      */
     void imprimir_menu(const map<Reloj,Tarea> &lista_tareas);
@@ -79,12 +82,12 @@ public:
      */
     bool modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tarea &t);
 
-    /** @brief borra una tarrea de la agenda
+    /** @brief borra una tarea de la agenda
 
         \pre La tarea esta en la agenda
         \post devuelve true si se ha podido borrar la tarea de la agenda
      */
-    bool borrar_tarea(const Reloj &r, const Tarea &t);
+    bool borrar_tarea(const Reloj &r);
 
     /** @brief consulta la hora del reloj interno
 

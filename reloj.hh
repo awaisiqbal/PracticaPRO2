@@ -37,9 +37,7 @@ public:
         \pre cierto
         \post crea un reloj con el dia y la hora con los valores del parámetro
     */
-    Reloj(string datetime,string hora);
-
-    /* Destructora per defecte */
+    Reloj(string fecha,string hora);
 
     /* Modificadores */
 
@@ -57,18 +55,6 @@ public:
 
     //Consultores
 
-    /** @brief Consulta si una dia es menor al dia del reloj interno
-        \pre el reloj tiene dia
-        \post falso si el dia por parametro es mayor, cierto si el dia por parametro es menor
-    */
-    bool fecha_menor(string fecha);
-
-    /** @brief Consulta si una hora es menor a la hora del reloj interno
-        \pre el reloj tiene hora
-        \post falso si la hora por parametro es mayor, cierto si la hora por parametro es menor
-    */
-    bool hora_menor(string hora);
-
     /** @brief Consulta el dia del reloj
        \pre el reloj tiene dia
        \post devuelve el dia del reloj
@@ -80,6 +66,18 @@ public:
        \post devuelve la hora del reloj
     */
     string consultar_hora() const;
+
+    /** @brief Consulta si una dia es menor al dia del reloj interno
+        \pre el reloj tiene dia
+        \post falso si el dia por parametro es mayor, cierto si el dia por parametro es menor
+    */
+    bool fecha_menor(string fecha);
+
+    /** @brief Consulta si una hora es menor a la hora del reloj interno
+        \pre el reloj tiene hora
+        \post falso si la hora por parametro es mayor, cierto si la hora por parametro es menor
+    */
+    bool hora_menor(string hora);
 
     /** @brief Imprime la fecha y hora actual DD/MM/AA hh:mm
      */

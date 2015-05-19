@@ -1,12 +1,10 @@
 #include "tarea.hh"
-//#include <string>
 
 Tarea::Tarea(){}
 
 
 Tarea::Tarea(const string &titulo){
     this->titulo = titulo;
-    this->tags;
 }
 
 Tarea::Tarea(const string &titulo,const Tags &tags){
@@ -61,6 +59,6 @@ bool Tarea::tratar_expr(string s){
         s1 = s.substr(1,i);
         s2 = s.substr(i+2,s.length()-i-3);
         if(op == '.') return (tratar_expr(s1) and tratar_expr(s2)); // si la operacion es '.' se trata como un and
-        else if(op == ',') return (tratar_expr(s1) or tratar_expr(s2)); // si la operacion es ',' se trata como un or
+        else return (tratar_expr(s1) or tratar_expr(s2)); // si la operacion es ',' se trata como un or
     }
 }

@@ -1,24 +1,8 @@
 #include "agenda.hh"
 
 Agenda::Agenda()
-{
+{}
 
-}
-
-void Agenda::comprobar_expr(map<Reloj,Tarea> &mymap,const string &expr){
-    if(expr != "*"){ //comprobar si hay alguna expresion
-        map<Reloj,Tarea>::iterator it = mymap.begin();
-        while(it != mymap.end()){ // si hay tareas en la agenda
-            Tarea ta = it->second;
-            bool cumple_expr = ta.tratar_expr(expr);//se comprueba cada tarea si cumple la expresion
-            if(!cumple_expr){ // si no cumple la expresion  se borra la tarea
-                mymap.erase(it++);
-            } else {
-                ++it;
-            }
-        }
-    }
-}
 
 bool Agenda::buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,const string &expr,map<Reloj,Tarea> &mymap,bool excluir_ultimo) {
     bool todo_OK = false;
@@ -37,6 +21,21 @@ bool Agenda::buscar_tarea_intervalo(const Reloj &reloj1,const Reloj &reloj2,cons
         todo_OK = true;
     }
     return todo_OK;
+}
+
+void Agenda::comprobar_expr(map<Reloj,Tarea> &mymap,const string &expr){
+    if(expr != "*"){ //comprobar si hay alguna expresion
+        map<Reloj,Tarea>::iterator it = mymap.begin();
+        while(it != mymap.end()){ // si hay tareas en la agenda
+            Tarea ta = it->second;
+            bool cumple_expr = ta.tratar_expr(expr);//se comprueba cada tarea si cumple la expresion
+            if(!cumple_expr){ // si no cumple la expresion  se borra la tarea
+                mymap.erase(it++);
+            } else {
+                ++it;
+            }
+        }
+    }
 }
 
 void Agenda::imprimir_menu(const map<Reloj,Tarea> &lista_tareas){
@@ -81,7 +80,7 @@ bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tar
     }else{
         map<Reloj,Tarea>::iterator it2(horario.find(reloj2)); //iterador para saber si hay alguna tarea en la nueva hora
         if(not( reloj1 == reloj2) and it2 == horario.end()){ //si los dos relojes son diferentes y no hay nada en la nueva hora se modifica
-            if(borrar_tarea(reloj1,t)){//si se ha podido borrar la tarea se añade la nueva tarrea
+            if(borrar_tarea(reloj1)){//si se ha podido borrar la tarea se añade la nueva tarrea
                 todo_ok = anadir_tarea(reloj2,t);
                 todo_ok = true;
             }
@@ -95,7 +94,7 @@ bool Agenda::modificar_tarea(const Reloj &reloj1, const Reloj &reloj2, const Tar
     return todo_ok;
 }
 
-bool Agenda::borrar_tarea(const Reloj &r, const Tarea &t){
+bool Agenda::borrar_tarea(const Reloj &r){
     bool todo_ok = true;
     map<Reloj,Tarea>::iterator it(horario.find(r));
     if(it != horario.end()){ // comprobar si la tarea es del futuro y si se ha encontrado
