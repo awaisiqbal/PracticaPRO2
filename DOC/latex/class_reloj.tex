@@ -11,32 +11,34 @@ Representa el reloj interno.
 \item 
 \hyperlink{class_reloj_a0966eaa7e7079419049e683bafa7dbc0}{Reloj} ()
 \begin{DoxyCompactList}\small\item\em Creadora por defecto. \end{DoxyCompactList}\item 
-\hyperlink{class_reloj_a86f51a4c60125a60897c180303b4f7cc}{Reloj} (string fecha\-Hora)
-\begin{DoxyCompactList}\small\item\em Crea un reloj con fecha y hora, uno con valor predeterminado y el otro con valor asignado. \end{DoxyCompactList}\item 
-\hyperlink{class_reloj_ad74790adea13c7fec942f4733e7a64ba}{Reloj} (string datetime, string hora)
+\hyperlink{class_reloj_ab89b531024981f8e31250dc11e904803}{Reloj} (string fecha, string hora)
 \begin{DoxyCompactList}\small\item\em Crea un reloj con fecha asignada. \end{DoxyCompactList}\item 
 bool \hyperlink{class_reloj_af996940ee33d23f3d592b96338210f3b}{modificar\-\_\-fecha} (string fecha)
 \begin{DoxyCompactList}\small\item\em Modifica el dia del reloj. \end{DoxyCompactList}\item 
 bool \hyperlink{class_reloj_ac19961f7455f4e255fe4ef7fa809ceb1}{modificar\-\_\-hora} (string hora)
 \begin{DoxyCompactList}\small\item\em Modifica la hora del reloj. \end{DoxyCompactList}\item 
-bool \hyperlink{class_reloj_a8aa72ede1abf643eeb3e9afafe37c273}{es\-\_\-menor} (const \hyperlink{class_reloj}{Reloj} \&r)
-\begin{DoxyCompactList}\small\item\em consulta si el roloj actual es menor que el reloj introducido \end{DoxyCompactList}\item 
+string \hyperlink{class_reloj_a9864653fc4a95aec88e967d0917a800a}{consultar\-\_\-fecha} () const 
+\begin{DoxyCompactList}\small\item\em Consulta el dia del reloj. \end{DoxyCompactList}\item 
+string \hyperlink{class_reloj_a4d5e3ad6764d268820e204b38015e87c}{consultar\-\_\-hora} () const 
+\begin{DoxyCompactList}\small\item\em Consulta la hora del reloj. \end{DoxyCompactList}\item 
 bool \hyperlink{class_reloj_a12b0c122a6a97fb1d49beeacf2fb4186}{fecha\-\_\-menor} (string fecha)
 \begin{DoxyCompactList}\small\item\em Consulta si una dia es menor al dia del reloj interno. \end{DoxyCompactList}\item 
 bool \hyperlink{class_reloj_a0e8980f68986d6083ab974ca3b49c78a}{hora\-\_\-menor} (string hora)
 \begin{DoxyCompactList}\small\item\em Consulta si una hora es menor a la hora del reloj interno. \end{DoxyCompactList}\item 
-string \hyperlink{class_reloj_a3031e0e51df831ecebc72af577a745e6}{consultar\-\_\-fecha} ()
-\begin{DoxyCompactList}\small\item\em Consulta el dia del reloj. \end{DoxyCompactList}\item 
-string \hyperlink{class_reloj_aedc980bf42354252bf50712f560981e5}{consultar\-\_\-hora} ()
-\begin{DoxyCompactList}\small\item\em Consulta la hora del reloj. \end{DoxyCompactList}\item 
+void \hyperlink{class_reloj_af0565ad1e79e7a340234e8a16598244c}{imprimir\-\_\-\-Reloj} () const 
+\begin{DoxyCompactList}\small\item\em Imprime la fecha y hora actual D\-D/\-M\-M/\-A\-A hh\-:mm. \end{DoxyCompactList}\item 
 bool \hyperlink{class_reloj_a912ed4e4d552e7289e3711b6a22a35cb}{operator$<$} (const \hyperlink{class_reloj}{Reloj} \&other) const 
+\item 
+bool \hyperlink{class_reloj_a61b3c87188b6fc6c3ff7953a633057f9}{operator$<$=} (const \hyperlink{class_reloj}{Reloj} \&other) const 
+\item 
+bool \hyperlink{class_reloj_af5567b0ddc4f1fa7cf857a2d56314880}{operator==} (const \hyperlink{class_reloj}{Reloj} \&other) const 
 \end{DoxyCompactItemize}
 
 
 \subsection{Descripción detallada}
 Representa el reloj interno. 
 
-Definición en la línea 16 del archivo reloj.\-hh.
+Definición en la línea 17 del archivo reloj.\-hh.
 
 
 
@@ -60,31 +62,14 @@ cierto
 \begin{DoxyPostcond}{Postcondición}
 crea el reloj inicial con hora \char`\"{}00\-:00\char`\"{} y dia \char`\"{}20.\-04.\-15\char`\"{}. 
 \end{DoxyPostcond}
-\hypertarget{class_reloj_a86f51a4c60125a60897c180303b4f7cc}{\index{Reloj@{Reloj}!Reloj@{Reloj}}
+\hypertarget{class_reloj_ab89b531024981f8e31250dc11e904803}{\index{Reloj@{Reloj}!Reloj@{Reloj}}
 \index{Reloj@{Reloj}!Reloj@{Reloj}}
 \subsubsection[{Reloj}]{\setlength{\rightskip}{0pt plus 5cm}Reloj\-::\-Reloj (
 \begin{DoxyParamCaption}
-\item[{string}]{fecha\-Hora}
-\end{DoxyParamCaption}
-)}}\label{class_reloj_a86f51a4c60125a60897c180303b4f7cc}
-
-
-Crea un reloj con fecha y hora, uno con valor predeterminado y el otro con valor asignado. 
-
-\begin{DoxyPrecond}{Precondición}
-cierto 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondición}
-si el parámetro es un dia, crea un reloj con dia con valor del parámetro y hora \char`\"{}00\-:00\char`\"{}, si el parámetro es una hora, crea un reloj con dia \char`\"{}20.\-04.\-15\char`\"{} y hora con valor del parámetro 
-\end{DoxyPostcond}
-\hypertarget{class_reloj_ad74790adea13c7fec942f4733e7a64ba}{\index{Reloj@{Reloj}!Reloj@{Reloj}}
-\index{Reloj@{Reloj}!Reloj@{Reloj}}
-\subsubsection[{Reloj}]{\setlength{\rightskip}{0pt plus 5cm}Reloj\-::\-Reloj (
-\begin{DoxyParamCaption}
-\item[{string}]{datetime, }
+\item[{string}]{fecha, }
 \item[{string}]{hora}
 \end{DoxyParamCaption}
-)}}\label{class_reloj_ad74790adea13c7fec942f4733e7a64ba}
+)}}\label{class_reloj_ab89b531024981f8e31250dc11e904803}
 
 
 Crea un reloj con fecha asignada. 
@@ -132,22 +117,39 @@ el reloj tiene hora
 \begin{DoxyPostcond}{Postcondición}
 la hora queda modificada 
 \end{DoxyPostcond}
-\hypertarget{class_reloj_a8aa72ede1abf643eeb3e9afafe37c273}{\index{Reloj@{Reloj}!es\-\_\-menor@{es\-\_\-menor}}
-\index{es\-\_\-menor@{es\-\_\-menor}!Reloj@{Reloj}}
-\subsubsection[{es\-\_\-menor}]{\setlength{\rightskip}{0pt plus 5cm}bool Reloj\-::es\-\_\-menor (
+\hypertarget{class_reloj_a9864653fc4a95aec88e967d0917a800a}{\index{Reloj@{Reloj}!consultar\-\_\-fecha@{consultar\-\_\-fecha}}
+\index{consultar\-\_\-fecha@{consultar\-\_\-fecha}!Reloj@{Reloj}}
+\subsubsection[{consultar\-\_\-fecha}]{\setlength{\rightskip}{0pt plus 5cm}string Reloj\-::consultar\-\_\-fecha (
 \begin{DoxyParamCaption}
-\item[{const {\bf Reloj} \&}]{r}
+{}
 \end{DoxyParamCaption}
-)}}\label{class_reloj_a8aa72ede1abf643eeb3e9afafe37c273}
+) const}}\label{class_reloj_a9864653fc4a95aec88e967d0917a800a}
 
 
-consulta si el roloj actual es menor que el reloj introducido 
+Consulta el dia del reloj. 
 
 \begin{DoxyPrecond}{Precondición}
-el reloj tiene hora y dia 
+el reloj tiene dia 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-falso si la fecha por parametro es mayor, cierto si la fecha por parametro es menor 
+devuelve el dia del reloj 
+\end{DoxyPostcond}
+\hypertarget{class_reloj_a4d5e3ad6764d268820e204b38015e87c}{\index{Reloj@{Reloj}!consultar\-\_\-hora@{consultar\-\_\-hora}}
+\index{consultar\-\_\-hora@{consultar\-\_\-hora}!Reloj@{Reloj}}
+\subsubsection[{consultar\-\_\-hora}]{\setlength{\rightskip}{0pt plus 5cm}string Reloj\-::consultar\-\_\-hora (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_reloj_a4d5e3ad6764d268820e204b38015e87c}
+
+
+Consulta la hora del reloj. 
+
+\begin{DoxyPrecond}{Precondición}
+el reloj tiene hora 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve la hora del reloj 
 \end{DoxyPostcond}
 \hypertarget{class_reloj_a12b0c122a6a97fb1d49beeacf2fb4186}{\index{Reloj@{Reloj}!fecha\-\_\-menor@{fecha\-\_\-menor}}
 \index{fecha\-\_\-menor@{fecha\-\_\-menor}!Reloj@{Reloj}}
@@ -183,40 +185,17 @@ el reloj tiene hora
 \begin{DoxyPostcond}{Postcondición}
 falso si la hora por parametro es mayor, cierto si la hora por parametro es menor 
 \end{DoxyPostcond}
-\hypertarget{class_reloj_a3031e0e51df831ecebc72af577a745e6}{\index{Reloj@{Reloj}!consultar\-\_\-fecha@{consultar\-\_\-fecha}}
-\index{consultar\-\_\-fecha@{consultar\-\_\-fecha}!Reloj@{Reloj}}
-\subsubsection[{consultar\-\_\-fecha}]{\setlength{\rightskip}{0pt plus 5cm}string Reloj\-::consultar\-\_\-fecha (
+\hypertarget{class_reloj_af0565ad1e79e7a340234e8a16598244c}{\index{Reloj@{Reloj}!imprimir\-\_\-\-Reloj@{imprimir\-\_\-\-Reloj}}
+\index{imprimir\-\_\-\-Reloj@{imprimir\-\_\-\-Reloj}!Reloj@{Reloj}}
+\subsubsection[{imprimir\-\_\-\-Reloj}]{\setlength{\rightskip}{0pt plus 5cm}void Reloj\-::imprimir\-\_\-\-Reloj (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_reloj_a3031e0e51df831ecebc72af577a745e6}
+) const}}\label{class_reloj_af0565ad1e79e7a340234e8a16598244c}
 
 
-Consulta el dia del reloj. 
+Imprime la fecha y hora actual D\-D/\-M\-M/\-A\-A hh\-:mm. 
 
-\begin{DoxyPrecond}{Precondición}
-el reloj tiene dia 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondición}
-devuelve el dia del reloj 
-\end{DoxyPostcond}
-\hypertarget{class_reloj_aedc980bf42354252bf50712f560981e5}{\index{Reloj@{Reloj}!consultar\-\_\-hora@{consultar\-\_\-hora}}
-\index{consultar\-\_\-hora@{consultar\-\_\-hora}!Reloj@{Reloj}}
-\subsubsection[{consultar\-\_\-hora}]{\setlength{\rightskip}{0pt plus 5cm}string Reloj\-::consultar\-\_\-hora (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_reloj_aedc980bf42354252bf50712f560981e5}
-
-
-Consulta la hora del reloj. 
-
-\begin{DoxyPrecond}{Precondición}
-el reloj tiene hora 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondición}
-devuelve la hora del reloj 
-\end{DoxyPostcond}
 \hypertarget{class_reloj_a912ed4e4d552e7289e3711b6a22a35cb}{\index{Reloj@{Reloj}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Reloj@{Reloj}}
 \subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool Reloj\-::operator$<$ (
@@ -226,19 +205,59 @@ devuelve la hora del reloj
 ) const}}\label{class_reloj_a912ed4e4d552e7289e3711b6a22a35cb}
 
 
-Definición en la línea 98 del archivo reloj.\-hh.
+Definición en la línea 86 del archivo reloj.\-hh.
 
 
 \begin{DoxyCode}
-98                                               \{
-99         \textcolor{keywordflow}{if}(this->fecha < other.fecha)\{
-100             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-101         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this->fecha > other.fecha)\{
-102             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-103         \} \textcolor{keywordflow}{else} \{
-104             \textcolor{keywordflow}{return} this->hora < other.hora;
-105         \}
-106     \}
+86                                               \{
+87         \textcolor{keywordflow}{if}(this->fecha < other.fecha)\{
+88             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+89         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this->fecha > other.fecha)\{
+90             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+91         \} \textcolor{keywordflow}{else} \{
+92             \textcolor{keywordflow}{return} this->hora < other.hora;
+93         \}
+94     \}
+\end{DoxyCode}
+\hypertarget{class_reloj_a61b3c87188b6fc6c3ff7953a633057f9}{\index{Reloj@{Reloj}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Reloj@{Reloj}}
+\subsubsection[{operator$<$=}]{\setlength{\rightskip}{0pt plus 5cm}bool Reloj\-::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reloj} \&}]{other}
+\end{DoxyParamCaption}
+) const}}\label{class_reloj_a61b3c87188b6fc6c3ff7953a633057f9}
+
+
+Definición en la línea 96 del archivo reloj.\-hh.
+
+
+\begin{DoxyCode}
+96                                                \{
+97         \textcolor{keywordflow}{if}(this->fecha < other.fecha)\{
+98             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+99         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this->fecha > other.fecha)\{
+100             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+101         \} \textcolor{keywordflow}{else} \{
+102             \textcolor{keywordflow}{return} this->hora <= other.hora;
+103         \}
+104     \}
+\end{DoxyCode}
+\hypertarget{class_reloj_af5567b0ddc4f1fa7cf857a2d56314880}{\index{Reloj@{Reloj}!operator==@{operator==}}
+\index{operator==@{operator==}!Reloj@{Reloj}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Reloj\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reloj} \&}]{other}
+\end{DoxyParamCaption}
+) const}}\label{class_reloj_af5567b0ddc4f1fa7cf857a2d56314880}
+
+
+Definición en la línea 106 del archivo reloj.\-hh.
+
+
+\begin{DoxyCode}
+107     \{
+108         \textcolor{keywordflow}{return} this->fecha == other.fecha and this->hora == other.hora;
+109     \}
 \end{DoxyCode}
 
 

@@ -61,7 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
-      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -88,44 +87,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef AGENDA_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AGENDA_HH</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="reloj_8hh.html">reloj.hh</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="reloj_8hh.html" title="Clase Reloj.">reloj.hh</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tarea_8hh.html">tarea.hh</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;list&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;map&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="class_agenda.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_agenda.html" title="Representa una colección de Tareas, ordenadas por la hora de tarea.">Agenda</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_reloj.html">Reloj</a> tiempo_actual;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    map&lt;Reloj,Tarea&gt; horario;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_agenda.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_agenda.html" title="Representa una colección de Tareas, ordenadas por la hora de tarea.">Agenda</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> tiempo_actual;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    map&lt;Reloj,Tarea&gt; horario;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">/* Constructoras */</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_agenda.html#a6685054d2b4ccbf2a4ef2ac5e3746bc3" title="Creadora por defecto.">Agenda</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_agenda.html" title="Representa una colección de Tareas, ordenadas por la hora de tarea.">Agenda</a>();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">/* Modificadoras */</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    map&lt;Reloj,Tarea&gt; <a class="code" href="class_agenda.html#a82ce91d05bf272a3c0ead42fc64e84aa" title="Busca tareas en un intervalos y que cumplan una expresión.">buscar_tarea_intervalo</a>(<span class="keyword">const</span> <a class="code" href="class_reloj.html">Reloj</a> &amp;reloj1,<span class="keyword">const</span> <a class="code" href="class_reloj.html">Reloj</a> &amp;reloj2,<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;expr) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_agenda.html#a755177707be90968dedb6ff36647c3af" title="Imprime las tareas enumeradas.">imprimir_menu</a>(<span class="keyword">const</span> map&lt;Reloj,Tarea&gt; &amp;lista_tareas);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_agenda.html#aeba776d0394a5cc0da53e7955d713133" title="añade una tarea en la agenda">anadir_tarea</a>(<span class="keyword">const</span> <a class="code" href="class_reloj.html">Reloj</a> &amp;r, <span class="keyword">const</span> <a class="code" href="class_tarea.html">Tarea</a> &amp;t);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_agenda.html#aecbb7c1af5d9816012ba9b6b7c5f3bfe" title="modifica una tarea que hay en la agenda">modificar_tarea</a>(<span class="keyword">const</span> <a class="code" href="class_reloj.html">Reloj</a> &amp;reloj1, <span class="keyword">const</span> <a class="code" href="class_reloj.html">Reloj</a> &amp;reloj2, <span class="keyword">const</span> <a class="code" href="class_tarea.html">Tarea</a> &amp;t);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_agenda.html#af1d7e74d388a0b22c8186b4b329d0bae" title="borra una tarrea de la agenda">borrar_tarea</a>(<span class="keyword">const</span> <a class="code" href="class_reloj.html">Reloj</a> &amp;r, <span class="keyword">const</span> <a class="code" href="class_tarea.html">Tarea</a> &amp;t);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> buscar_tarea_intervalo(<span class="keyword">const</span> <a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> &amp;reloj1,<span class="keyword">const</span> <a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> &amp;reloj2,<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;expr, map&lt;Reloj,Tarea&gt; &amp;map,<span class="keywordtype">bool</span> excluir_ultimo) ;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> comprobar_expr(map&lt;Reloj,Tarea&gt; &amp;map,<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;expr);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> imprimir_menu(<span class="keyword">const</span> map&lt;Reloj,Tarea&gt; &amp;lista_tareas);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> imprimir_menu_actual();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> anadir_tarea(<span class="keyword">const</span> <a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> &amp;r, <span class="keyword">const</span> <a class="code" href="class_tarea.html" title="Representa una tarea, con título y 0 o más etiquetas.">Tarea</a> &amp;t);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="class_reloj.html">Reloj</a> <a class="code" href="class_agenda.html#aba4ae16c8c68b5b08adabd6d3c633630">get_RelojActual</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_agenda.html#a8faca3490d5b520615c99809ce80521d">set_Reloj</a>(<a class="code" href="class_reloj.html">Reloj</a> r);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif // AGENDA_HH</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">bool</span> modificar_tarea(<span class="keyword">const</span> <a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> &amp;reloj1, <span class="keyword">const</span> <a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> &amp;reloj2, <span class="keyword">const</span> <a class="code" href="class_tarea.html" title="Representa una tarea, con título y 0 o más etiquetas.">Tarea</a> &amp;t);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> borrar_tarea(<span class="keyword">const</span> <a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> &amp;r);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> consultar_RelojActual();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span> modificar_RelojActual(<a class="code" href="class_reloj.html" title="Representa el reloj interno.">Reloj</a> r);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif // AGENDA_HH</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

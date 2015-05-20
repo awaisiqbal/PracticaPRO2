@@ -61,7 +61,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
-      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -84,36 +83,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 <div class="title">tarea.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="tarea_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TAREA_HH</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TAREA_HH</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tags_8hh.html">tags.hh</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="code" href="class_tarea.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tarea.html">Tarea</a> {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">//constructores</span></div>
+<a href="tarea_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef TAREA_HH</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TAREA_HH</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tags_8hh.html" title="Especificación de la clase Tag.">tags.hh</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_tarea.html#afd1c4fcbd6fe22188e6f0dae6b44829b">Tarea</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_tarea.html#afd1c4fcbd6fe22188e6f0dae6b44829b">Tarea</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;titulo);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_tarea.html#afd1c4fcbd6fe22188e6f0dae6b44829b">Tarea</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;titulo,<span class="keyword">const</span> <a class="code" href="class_tags.html" title="Representa una colección de etiquetas.">Tags</a> &amp;tags);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_tarea.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tarea.html" title="Representa una tarea, con título y 0 o más etiquetas.">Tarea</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tarea.html#aa9371098468f9074182b5df5dc240fc3">set_titulo</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;titulo);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_tarea.html#a101c30f2185d0e69b7e3188fad33041f">get_titulo</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tarea.html#a70871ce092aceb665b59f2094520bba4">set_tags</a>(<span class="keyword">const</span> <a class="code" href="class_tags.html" title="Representa una colección de etiquetas.">Tags</a> &amp;tags);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_tags.html" title="Representa una colección de etiquetas.">Tags</a> <a class="code" href="class_tarea.html#a36fa738d7b7b34992e723c69a7c67065">get_tags</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_tarea.html#a7cee2384eaa90dce92f2f385268b34f6">contiene_tag</a>(<span class="keywordtype">string</span> tag);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tarea.html#ad2bddff256aeee98a50b84c0aa0a002d">anadir_tag</a>(<span class="keywordtype">string</span> tag);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tarea.html#a7c92a7021f2b2ef18092e4a9bb27b24d">borar_tag</a>(<span class="keywordtype">string</span> tag);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">string</span> titulo;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_tags.html" title="Representa una colección de etiquetas.">Tags</a> tags;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif // TAREA_HH</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">string</span> titulo;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_tags.html" title="Representa una colección de etiquetas.">Tags</a> tags;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">//constructores</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_tarea.html" title="Representa una tarea, con título y 0 o más etiquetas.">Tarea</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_tarea.html" title="Representa una tarea, con título y 0 o más etiquetas.">Tarea</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;titulo);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_tarea.html" title="Representa una tarea, con título y 0 o más etiquetas.">Tarea</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;titulo, <span class="keyword">const</span> <a class="code" href="class_tags.html" title="Representa una colección de etiquetas.">Tags</a> &amp;tags);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> set_titulo(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;titulo);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">string</span> get_titulo() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> set_tags(<span class="keyword">const</span> <a class="code" href="class_tags.html" title="Representa una colección de etiquetas.">Tags</a> &amp;tags);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="class_tags.html" title="Representa una colección de etiquetas.">Tags</a> get_tags() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> contiene_tag(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;tag);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">bool</span> anadir_tag(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;tag);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> borrar_tag(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;tag);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">bool</span> tratar_expr(<span class="keywordtype">string</span> s);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif // TAREA_HH</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

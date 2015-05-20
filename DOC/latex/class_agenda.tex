@@ -11,26 +11,30 @@ Representa una colección de Tareas, ordenadas por la hora de tarea.
 \item 
 \hyperlink{class_agenda_a6685054d2b4ccbf2a4ef2ac5e3746bc3}{Agenda} ()
 \begin{DoxyCompactList}\small\item\em Creadora por defecto. \end{DoxyCompactList}\item 
-map$<$ \hyperlink{class_reloj}{Reloj}, \hyperlink{class_tarea}{Tarea} $>$ \hyperlink{class_agenda_a82ce91d05bf272a3c0ead42fc64e84aa}{buscar\-\_\-tarea\-\_\-intervalo} (const \hyperlink{class_reloj}{Reloj} \&reloj1, const \hyperlink{class_reloj}{Reloj} \&reloj2, const string \&expr) const 
+bool \hyperlink{class_agenda_a33563a51900832ac1daeeb3813d00fdc}{buscar\-\_\-tarea\-\_\-intervalo} (const \hyperlink{class_reloj}{Reloj} \&reloj1, const \hyperlink{class_reloj}{Reloj} \&reloj2, const string \&expr, map$<$ \hyperlink{class_reloj}{Reloj}, \hyperlink{class_tarea}{Tarea} $>$ \&map, bool excluir\-\_\-ultimo)
 \begin{DoxyCompactList}\small\item\em Busca tareas en un intervalos y que cumplan una expresión. \end{DoxyCompactList}\item 
+void \hyperlink{class_agenda_a02f25e376fa69a673fd4bf9349a033e1}{comprobar\-\_\-expr} (map$<$ \hyperlink{class_reloj}{Reloj}, \hyperlink{class_tarea}{Tarea} $>$ \&map, const string \&expr)
+\begin{DoxyCompactList}\small\item\em borra todas las tareas que no cumplan la expresion, caso '$\ast$' no se borra nada \end{DoxyCompactList}\item 
 void \hyperlink{class_agenda_a755177707be90968dedb6ff36647c3af}{imprimir\-\_\-menu} (const map$<$ \hyperlink{class_reloj}{Reloj}, \hyperlink{class_tarea}{Tarea} $>$ \&lista\-\_\-tareas)
 \begin{DoxyCompactList}\small\item\em Imprime las tareas enumeradas. \end{DoxyCompactList}\item 
+void \hyperlink{class_agenda_add9c46e874c521513328bee5c7fb7fee}{imprimir\-\_\-menu\-\_\-actual} ()
+\begin{DoxyCompactList}\small\item\em Imprime todas las tareas que en el horario. \end{DoxyCompactList}\item 
 bool \hyperlink{class_agenda_aeba776d0394a5cc0da53e7955d713133}{anadir\-\_\-tarea} (const \hyperlink{class_reloj}{Reloj} \&r, const \hyperlink{class_tarea}{Tarea} \&t)
 \begin{DoxyCompactList}\small\item\em añade una tarea en la agenda \end{DoxyCompactList}\item 
 bool \hyperlink{class_agenda_aecbb7c1af5d9816012ba9b6b7c5f3bfe}{modificar\-\_\-tarea} (const \hyperlink{class_reloj}{Reloj} \&reloj1, const \hyperlink{class_reloj}{Reloj} \&reloj2, const \hyperlink{class_tarea}{Tarea} \&t)
 \begin{DoxyCompactList}\small\item\em modifica una tarea que hay en la agenda \end{DoxyCompactList}\item 
-bool \hyperlink{class_agenda_af1d7e74d388a0b22c8186b4b329d0bae}{borrar\-\_\-tarea} (const \hyperlink{class_reloj}{Reloj} \&r, const \hyperlink{class_tarea}{Tarea} \&t)
-\begin{DoxyCompactList}\small\item\em borra una tarrea de la agenda \end{DoxyCompactList}\item 
+bool \hyperlink{class_agenda_aee3c8541a89cc0a52ea39efda99e52c8}{borrar\-\_\-tarea} (const \hyperlink{class_reloj}{Reloj} \&r)
+\begin{DoxyCompactList}\small\item\em borra una tarea de la agenda \end{DoxyCompactList}\item 
 \hyperlink{class_reloj}{Reloj} \hyperlink{class_agenda_afc5f9ca9546ff0000e4abe92584ac526}{consultar\-\_\-\-Reloj\-Actual} ()
-\item 
+\begin{DoxyCompactList}\small\item\em consulta la hora del reloj interno \end{DoxyCompactList}\item 
 bool \hyperlink{class_agenda_a3c6df651d375edc2f3c2f06103eefd8b}{modificar\-\_\-\-Reloj\-Actual} (\hyperlink{class_reloj}{Reloj} r)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em modifica la hora del reloj interno \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripción detallada}
 Representa una colección de Tareas, ordenadas por la hora de tarea. 
 
-Definición en la línea 18 del archivo agenda.\-hh.
+Definición en la línea 16 del archivo agenda.\-hh.
 
 
 
@@ -57,24 +61,44 @@ el resultado es una agenta sin tareas y con el reloj actual a a 20/04/15 00\-:00
 
 
 \subsection{Documentación de las funciones miembro}
-\hypertarget{class_agenda_a82ce91d05bf272a3c0ead42fc64e84aa}{\index{Agenda@{Agenda}!buscar\-\_\-tarea\-\_\-intervalo@{buscar\-\_\-tarea\-\_\-intervalo}}
+\hypertarget{class_agenda_a33563a51900832ac1daeeb3813d00fdc}{\index{Agenda@{Agenda}!buscar\-\_\-tarea\-\_\-intervalo@{buscar\-\_\-tarea\-\_\-intervalo}}
 \index{buscar\-\_\-tarea\-\_\-intervalo@{buscar\-\_\-tarea\-\_\-intervalo}!Agenda@{Agenda}}
-\subsubsection[{buscar\-\_\-tarea\-\_\-intervalo}]{\setlength{\rightskip}{0pt plus 5cm}map$<${\bf Reloj},{\bf Tarea}$>$ Agenda\-::buscar\-\_\-tarea\-\_\-intervalo (
+\subsubsection[{buscar\-\_\-tarea\-\_\-intervalo}]{\setlength{\rightskip}{0pt plus 5cm}bool Agenda\-::buscar\-\_\-tarea\-\_\-intervalo (
 \begin{DoxyParamCaption}
 \item[{const {\bf Reloj} \&}]{reloj1, }
 \item[{const {\bf Reloj} \&}]{reloj2, }
-\item[{const string \&}]{expr}
+\item[{const string \&}]{expr, }
+\item[{map$<$ {\bf Reloj}, {\bf Tarea} $>$ \&}]{map, }
+\item[{bool}]{excluir\-\_\-ultimo}
 \end{DoxyParamCaption}
-) const}}\label{class_agenda_a82ce91d05bf272a3c0ead42fc64e84aa}
+)}}\label{class_agenda_a33563a51900832ac1daeeb3813d00fdc}
 
 
 Busca tareas en un intervalos y que cumplan una expresión. 
 
 \begin{DoxyPrecond}{Precondición}
-{\itshape reloj1} $<$ {\itshape reloj2} y {\itshape expr} es una string que puede ser '$\ast$' en caso de que no tenga ninguna condición sobre etiquetas, '\#$<$etiqueta$>$' donde hay una sola etiqueta para buscar o que el strign contenga una expresion con condiciones A\-N\-D y O\-R. 
+{\itshape reloj1} $<$ {\itshape reloj2} y {\itshape expr} es una string que puede ser '$\ast$' en caso de que no tenga ninguna condición sobre etiquetas, '\#$<$etiqueta$>$' donde hay una sola etiqueta para buscar o el string contenga una expresion con condiciones A\-N\-D y O\-R. 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-El resultado es un map$<$\-Reloj,\-Tarea$>$ donde están todas las tareas que hay en ese intervalo y que cumpla la expresión 
+El resultado es un map$<$\-Reloj,\-Tarea$>$ donde están todas las tareas que hay en ese intervalo y que cumpla la expresión y excluyendo el ultimo elemento si el excluir\-\_\-ultimo es cierto 
+\end{DoxyPostcond}
+\hypertarget{class_agenda_a02f25e376fa69a673fd4bf9349a033e1}{\index{Agenda@{Agenda}!comprobar\-\_\-expr@{comprobar\-\_\-expr}}
+\index{comprobar\-\_\-expr@{comprobar\-\_\-expr}!Agenda@{Agenda}}
+\subsubsection[{comprobar\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}void Agenda\-::comprobar\-\_\-expr (
+\begin{DoxyParamCaption}
+\item[{map$<$ {\bf Reloj}, {\bf Tarea} $>$ \&}]{map, }
+\item[{const string \&}]{expr}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_a02f25e376fa69a673fd4bf9349a033e1}
+
+
+borra todas las tareas que no cumplan la expresion, caso '$\ast$' no se borra nada 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape expr} es un exprecion bien hecha o es un '$\ast$' 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+modifica el {\itshape map} borrando las tareas que no cumplan la expresion 
 \end{DoxyPostcond}
 \hypertarget{class_agenda_a755177707be90968dedb6ff36647c3af}{\index{Agenda@{Agenda}!imprimir\-\_\-menu@{imprimir\-\_\-menu}}
 \index{imprimir\-\_\-menu@{imprimir\-\_\-menu}!Agenda@{Agenda}}
@@ -88,7 +112,24 @@ El resultado es un map$<$\-Reloj,\-Tarea$>$ donde están todas las tareas que ha
 Imprime las tareas enumeradas. 
 
 \begin{DoxyPrecond}{Precondición}
-lista no vacia 
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+cierto 
+\end{DoxyPostcond}
+\hypertarget{class_agenda_add9c46e874c521513328bee5c7fb7fee}{\index{Agenda@{Agenda}!imprimir\-\_\-menu\-\_\-actual@{imprimir\-\_\-menu\-\_\-actual}}
+\index{imprimir\-\_\-menu\-\_\-actual@{imprimir\-\_\-menu\-\_\-actual}!Agenda@{Agenda}}
+\subsubsection[{imprimir\-\_\-menu\-\_\-actual}]{\setlength{\rightskip}{0pt plus 5cm}void Agenda\-::imprimir\-\_\-menu\-\_\-actual (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_agenda_add9c46e874c521513328bee5c7fb7fee}
+
+
+Imprime todas las tareas que en el horario. 
+
+\begin{DoxyPrecond}{Precondición}
+horario no vaio 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 cierto 
@@ -130,17 +171,16 @@ la tarea ya este en la agenda, si no se cambia la fecha y hora {\itshape reloj1}
 \begin{DoxyPostcond}{Postcondición}
 devuelve true si se ha podido modificar en caso contrtio se devuelve falso 
 \end{DoxyPostcond}
-\hypertarget{class_agenda_af1d7e74d388a0b22c8186b4b329d0bae}{\index{Agenda@{Agenda}!borrar\-\_\-tarea@{borrar\-\_\-tarea}}
+\hypertarget{class_agenda_aee3c8541a89cc0a52ea39efda99e52c8}{\index{Agenda@{Agenda}!borrar\-\_\-tarea@{borrar\-\_\-tarea}}
 \index{borrar\-\_\-tarea@{borrar\-\_\-tarea}!Agenda@{Agenda}}
 \subsubsection[{borrar\-\_\-tarea}]{\setlength{\rightskip}{0pt plus 5cm}bool Agenda\-::borrar\-\_\-tarea (
 \begin{DoxyParamCaption}
-\item[{const {\bf Reloj} \&}]{r, }
-\item[{const {\bf Tarea} \&}]{t}
+\item[{const {\bf Reloj} \&}]{r}
 \end{DoxyParamCaption}
-)}}\label{class_agenda_af1d7e74d388a0b22c8186b4b329d0bae}
+)}}\label{class_agenda_aee3c8541a89cc0a52ea39efda99e52c8}
 
 
-borra una tarrea de la agenda 
+borra una tarea de la agenda 
 
 \begin{DoxyPrecond}{Precondición}
 La tarea esta en la agenda 
@@ -155,6 +195,16 @@ devuelve true si se ha podido borrar la tarea de la agenda
 {}
 \end{DoxyParamCaption}
 )}}\label{class_agenda_afc5f9ca9546ff0000e4abe92584ac526}
+
+
+consulta la hora del reloj interno 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve la hora interna del reloj 
+\end{DoxyPostcond}
 \hypertarget{class_agenda_a3c6df651d375edc2f3c2f06103eefd8b}{\index{Agenda@{Agenda}!modificar\-\_\-\-Reloj\-Actual@{modificar\-\_\-\-Reloj\-Actual}}
 \index{modificar\-\_\-\-Reloj\-Actual@{modificar\-\_\-\-Reloj\-Actual}!Agenda@{Agenda}}
 \subsubsection[{modificar\-\_\-\-Reloj\-Actual}]{\setlength{\rightskip}{0pt plus 5cm}bool Agenda\-::modificar\-\_\-\-Reloj\-Actual (
@@ -162,6 +212,16 @@ devuelve true si se ha podido borrar la tarea de la agenda
 \item[{{\bf Reloj}}]{r}
 \end{DoxyParamCaption}
 )}}\label{class_agenda_a3c6df651d375edc2f3c2f06103eefd8b}
+
+
+modifica la hora del reloj interno 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true si se ha modificado el reloj interno 
+\end{DoxyPostcond}
 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\-:\begin{DoxyCompactItemize}

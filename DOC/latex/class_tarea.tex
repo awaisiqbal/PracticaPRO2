@@ -25,16 +25,18 @@ void \hyperlink{class_tarea_a70871ce092aceb665b59f2094520bba4}{set\-\_\-tags} (c
 \begin{DoxyCompactList}\small\item\em Consulta las etiquetas de una tarea. \end{DoxyCompactList}\item 
 bool \hyperlink{class_tarea_ac5dd725d9b2868fe84af969e83f1ecbd}{contiene\-\_\-tag} (const string \&tag)
 \begin{DoxyCompactList}\small\item\em Consulta si una tarea tiene una etiqueta. \end{DoxyCompactList}\item 
-void \hyperlink{class_tarea_a721bcd802bd485cfe74d83ddcb360e9c}{anadir\-\_\-tag} (const string \&tag)
+bool \hyperlink{class_tarea_ad2a354a636f53e862841f2407acedc72}{anadir\-\_\-tag} (const string \&tag)
 \begin{DoxyCompactList}\small\item\em Añade una etiqueta a una tarea. \end{DoxyCompactList}\item 
-void \hyperlink{class_tarea_a302eed4ef2367fcbc10c9fbc98a291ad}{borar\-\_\-tag} (const string \&tag)
-\begin{DoxyCompactList}\small\item\em Borra una etiqueta de una tarea. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \hyperlink{class_tarea_a09c81269d5b51fd3418ab38fbc283625}{borrar\-\_\-tag} (const string \&tag)
+\begin{DoxyCompactList}\small\item\em Borra una etiqueta de una tarea. \end{DoxyCompactList}\item 
+bool \hyperlink{class_tarea_a8b6bebd509d90a33310a1e9a7215c494}{tratar\-\_\-expr} (string s)
+\begin{DoxyCompactList}\small\item\em comprueba si la tares cumple la expresion \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripción detallada}
 Representa una tarea, con título y 0 o más etiquetas. 
 
-Definición en la línea 14 del archivo tarea.\-hh.
+Definición en la línea 13 del archivo tarea.\-hh.
 
 
 
@@ -179,13 +181,13 @@ cierto
 \begin{DoxyPostcond}{Postcondición}
 devuelve cierto si la tarea tiene la etiqueta, falso si no la tiene 
 \end{DoxyPostcond}
-\hypertarget{class_tarea_a721bcd802bd485cfe74d83ddcb360e9c}{\index{Tarea@{Tarea}!anadir\-\_\-tag@{anadir\-\_\-tag}}
+\hypertarget{class_tarea_ad2a354a636f53e862841f2407acedc72}{\index{Tarea@{Tarea}!anadir\-\_\-tag@{anadir\-\_\-tag}}
 \index{anadir\-\_\-tag@{anadir\-\_\-tag}!Tarea@{Tarea}}
-\subsubsection[{anadir\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}void Tarea\-::anadir\-\_\-tag (
+\subsubsection[{anadir\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}bool Tarea\-::anadir\-\_\-tag (
 \begin{DoxyParamCaption}
 \item[{const string \&}]{tag}
 \end{DoxyParamCaption}
-)}}\label{class_tarea_a721bcd802bd485cfe74d83ddcb360e9c}
+)}}\label{class_tarea_ad2a354a636f53e862841f2407acedc72}
 
 
 Añade una etiqueta a una tarea. 
@@ -196,13 +198,13 @@ cierto
 \begin{DoxyPostcond}{Postcondición}
 añade una etiqueta a una tarea. 
 \end{DoxyPostcond}
-\hypertarget{class_tarea_a302eed4ef2367fcbc10c9fbc98a291ad}{\index{Tarea@{Tarea}!borar\-\_\-tag@{borar\-\_\-tag}}
-\index{borar\-\_\-tag@{borar\-\_\-tag}!Tarea@{Tarea}}
-\subsubsection[{borar\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}void Tarea\-::borar\-\_\-tag (
+\hypertarget{class_tarea_a09c81269d5b51fd3418ab38fbc283625}{\index{Tarea@{Tarea}!borrar\-\_\-tag@{borrar\-\_\-tag}}
+\index{borrar\-\_\-tag@{borrar\-\_\-tag}!Tarea@{Tarea}}
+\subsubsection[{borrar\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}bool Tarea\-::borrar\-\_\-tag (
 \begin{DoxyParamCaption}
 \item[{const string \&}]{tag}
 \end{DoxyParamCaption}
-)}}\label{class_tarea_a302eed4ef2367fcbc10c9fbc98a291ad}
+)}}\label{class_tarea_a09c81269d5b51fd3418ab38fbc283625}
 
 
 Borra una etiqueta de una tarea. 
@@ -212,6 +214,23 @@ la tarea tiene la etiqueta
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 borra la etiqueta de una tarea. 
+\end{DoxyPostcond}
+\hypertarget{class_tarea_a8b6bebd509d90a33310a1e9a7215c494}{\index{Tarea@{Tarea}!tratar\-\_\-expr@{tratar\-\_\-expr}}
+\index{tratar\-\_\-expr@{tratar\-\_\-expr}!Tarea@{Tarea}}
+\subsubsection[{tratar\-\_\-expr}]{\setlength{\rightskip}{0pt plus 5cm}bool Tarea\-::tratar\-\_\-expr (
+\begin{DoxyParamCaption}
+\item[{string}]{s}
+\end{DoxyParamCaption}
+)}}\label{class_tarea_a8b6bebd509d90a33310a1e9a7215c494}
+
+
+comprueba si la tares cumple la expresion 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape s} es una expresion bien formada 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true si cumple la expresion 
 \end{DoxyPostcond}
 
 

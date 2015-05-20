@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['borar_5ftag',['borar_tag',['../class_tarea.html#a7c92a7021f2b2ef18092e4a9bb27b24d',1,'Tarea']]],
-  ['borrar_5ftag',['borrar_tag',['../class_tags.html#a6b5bf2e8bb405c6396d947543460710b',1,'Tags']]],
-  ['borrar_5ftarea',['borrar_tarea',['../class_agenda.html#af1d7e74d388a0b22c8186b4b329d0bae',1,'Agenda']]],
-  ['buscar_5ftarea_5fintervalo',['buscar_tarea_intervalo',['../class_agenda.html#a82ce91d05bf272a3c0ead42fc64e84aa',1,'Agenda']]]
+  ['borrar_5ftag',['borrar_tag',['../class_tags.html#a7a2f42e0533c7ef830fba59a62939a3d',1,'Tags::borrar_tag()'],['../class_tarea.html#a09c81269d5b51fd3418ab38fbc283625',1,'Tarea::borrar_tag()']]],
+  ['borrar_5ftarea',['borrar_tarea',['../class_agenda.html#aee3c8541a89cc0a52ea39efda99e52c8',1,'Agenda']]],
+  ['buscar_5ftarea_5fintervalo',['buscar_tarea_intervalo',['../class_agenda.html#a33563a51900832ac1daeeb3813d00fdc',1,'Agenda']]]
 ];

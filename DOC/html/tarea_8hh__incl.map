@@ -1,4 +1,4 @@
 <map id="tarea.hh" name="tarea.hh">
-<area shape="rect" id="node2" href="$tags_8hh.html" title="tags.hh" alt="" coords="43,80,105,107"/>
-<area shape="rect" id="node3" href="$reloj_8hh.html" title="reloj.hh" alt="" coords="5,155,67,181"/>
+<area shape="rect" id="node2" href="$tags_8hh.html" title="Especificación de la clase Tag." alt="" coords="82,80,144,107"/>
+<area shape="rect" id="node3" href="$reloj_8hh.html" title="Clase Reloj." alt="" coords="43,155,105,181"/>
 </map>

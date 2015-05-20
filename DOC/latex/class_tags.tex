@@ -17,16 +17,18 @@ map$<$ string, bool $>$ \hyperlink{class_tags_a811129b11acf0ae9c6f224a386075e46}
 \begin{DoxyCompactList}\small\item\em Devuelve todas las etiquetas. \end{DoxyCompactList}\item 
 bool \hyperlink{class_tags_aff44c4ae5a949512c893d1fc9ab5312a}{search\-\_\-tag} (const string \&tag)
 \begin{DoxyCompactList}\small\item\em Busca si este tag está en la lista. \end{DoxyCompactList}\item 
-void \hyperlink{class_tags_a0bbd998942d9415108eae2be28daedd0}{add\-\_\-tag} (const string \&tag)
+bool \hyperlink{class_tags_ab4220617f466486577ab9699c0b2d8c7}{add\-\_\-tag} (const string \&tag)
 \begin{DoxyCompactList}\small\item\em Añade una etiqueta en la lista. \end{DoxyCompactList}\item 
-void \hyperlink{class_tags_a6b5bf2e8bb405c6396d947543460710b}{borrar\-\_\-tag} (const string \&tag)
-\begin{DoxyCompactList}\small\item\em Borra la etiqueta de la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \hyperlink{class_tags_a7a2f42e0533c7ef830fba59a62939a3d}{borrar\-\_\-tag} (const string \&tag)
+\begin{DoxyCompactList}\small\item\em Borra la etiqueta de la lista. \end{DoxyCompactList}\item 
+void \hyperlink{class_tags_ade593708dde12c2ca24903fee2092ada}{imprimir\-\_\-tags} ()
+\begin{DoxyCompactList}\small\item\em imprime los tags \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripción detallada}
 Representa una colección de etiquetas. 
 
-Definición en la línea 17 del archivo tags.\-hh.
+Definición en la línea 16 del archivo tags.\-hh.
 
 
 
@@ -102,13 +104,13 @@ cierto
 \begin{DoxyPostcond}{Postcondición}
 devuelve true si la etiqueta esta en la lista, en caso contratio devuelve falso 
 \end{DoxyPostcond}
-\hypertarget{class_tags_a0bbd998942d9415108eae2be28daedd0}{\index{Tags@{Tags}!add\-\_\-tag@{add\-\_\-tag}}
+\hypertarget{class_tags_ab4220617f466486577ab9699c0b2d8c7}{\index{Tags@{Tags}!add\-\_\-tag@{add\-\_\-tag}}
 \index{add\-\_\-tag@{add\-\_\-tag}!Tags@{Tags}}
-\subsubsection[{add\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}void Tags\-::add\-\_\-tag (
+\subsubsection[{add\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}bool Tags\-::add\-\_\-tag (
 \begin{DoxyParamCaption}
 \item[{const string \&}]{tag}
 \end{DoxyParamCaption}
-)}}\label{class_tags_a0bbd998942d9415108eae2be28daedd0}
+)}}\label{class_tags_ab4220617f466486577ab9699c0b2d8c7}
 
 
 Añade una etiqueta en la lista. 
@@ -119,22 +121,39 @@ cierto
 \begin{DoxyPostcond}{Postcondición}
 añade una etiqueta en la lista 
 \end{DoxyPostcond}
-\hypertarget{class_tags_a6b5bf2e8bb405c6396d947543460710b}{\index{Tags@{Tags}!borrar\-\_\-tag@{borrar\-\_\-tag}}
+\hypertarget{class_tags_a7a2f42e0533c7ef830fba59a62939a3d}{\index{Tags@{Tags}!borrar\-\_\-tag@{borrar\-\_\-tag}}
 \index{borrar\-\_\-tag@{borrar\-\_\-tag}!Tags@{Tags}}
-\subsubsection[{borrar\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}void Tags\-::borrar\-\_\-tag (
+\subsubsection[{borrar\-\_\-tag}]{\setlength{\rightskip}{0pt plus 5cm}bool Tags\-::borrar\-\_\-tag (
 \begin{DoxyParamCaption}
 \item[{const string \&}]{tag}
 \end{DoxyParamCaption}
-)}}\label{class_tags_a6b5bf2e8bb405c6396d947543460710b}
+)}}\label{class_tags_a7a2f42e0533c7ef830fba59a62939a3d}
 
 
 Borra la etiqueta de la lista. 
 
 \begin{DoxyPrecond}{Precondición}
-la etiqueta esta en la lista 
+cierto 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
+borra la etiqueta de la lista 
+\end{DoxyPostcond}
+\hypertarget{class_tags_ade593708dde12c2ca24903fee2092ada}{\index{Tags@{Tags}!imprimir\-\_\-tags@{imprimir\-\_\-tags}}
+\index{imprimir\-\_\-tags@{imprimir\-\_\-tags}!Tags@{Tags}}
+\subsubsection[{imprimir\-\_\-tags}]{\setlength{\rightskip}{0pt plus 5cm}void Tags\-::imprimir\-\_\-tags (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tags_ade593708dde12c2ca24903fee2092ada}
+
+
+imprime los tags 
+
+\begin{DoxyPrecond}{Precondición}
 cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+imprime todas las etiquetas 
 \end{DoxyPostcond}
 
 

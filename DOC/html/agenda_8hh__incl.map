@@ -1,5 +1,5 @@
 <map id="agenda.hh" name="agenda.hh">
-<area shape="rect" id="node2" href="$reloj_8hh.html" title="reloj.hh" alt="" coords="5,229,67,256"/>
-<area shape="rect" id="node3" href="$tarea_8hh.html" title="tarea.hh" alt="" coords="38,80,105,107"/>
-<area shape="rect" id="node4" href="$tags_8hh.html" title="tags.hh" alt="" coords="41,155,103,181"/>
+<area shape="rect" id="node2" href="$reloj_8hh.html" title="Clase Reloj." alt="" coords="43,229,105,256"/>
+<area shape="rect" id="node5" href="$tarea_8hh.html" title="tarea.hh" alt="" coords="113,80,180,107"/>
+<area shape="rect" id="node6" href="$tags_8hh.html" title="Especificación de la clase Tag." alt="" coords="115,155,177,181"/>
 </map>
