@@ -91,7 +91,9 @@ int main()
                     todo_OK = a.modificar_tarea(r1,r2,t);
                     if(todo_OK){
                         it->second = t;
-                        relojesModificados.insert(std::pair<Reloj,Reloj>(r1,r2));//se guarda el nuevo reloj
+                        if(!(r1 == r2)){
+                            relojesModificados.insert(std::pair<Reloj,Reloj>(r1,r2));//se guarda el nuevo reloj
+                        }
                     }
                 } else {
                     todo_OK = false;

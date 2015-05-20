@@ -1,23 +1,37 @@
 + ir al cine 21.04.15 18:31 #diversion #cultura #ocio
 + cantar 21.04.15 20:00 #ocio #cultura #diversion
-+ cumple 23.04.15 15:00 #felicidad
++ cumple 23.04.15 15:00 #felicidad #diversion
 + examen 02.05.15 15:00 #estudios #prepareuself
-+ cenar 24.04.15 00:00 #gastronomia #comer #amigos
++ cenar 24.04.15 00:00 #gastronomia #comer #amigos #diversion #felicidad
 + mirar 25.04.15 20:00
 + examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
 -1
 1 #bla
-rellotge 21.04.15 20:01
+rellotge 21.04.15 20:00
 ?
 1 -etiquetes
 ?
-1 -#bla
 1 #bla
+1 -#bla
 ?
 -1
 1 blabla
-rellotge 21.04.15 20:00
+rellotge 21.04.15 19:59
 passat?
+1 19:00
+?
+1 #tag1 #tag2 #tag3 #tag4
+?
+? (#felicidad,#estudios)
+? (#diversion.(#felicidad,#ocio))
+? 24.04.15 21.04.15
+? #ocio
+?
+1 23.04.15 16:00
+1 24.04.15 16:00
+?
+5 -#prepareuself
+?
 
 sortir
 

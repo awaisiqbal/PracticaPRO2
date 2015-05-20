@@ -1,0 +1,118 @@
+
++ ir al cine 21.04.15 18:31 #diversion #cultura #ocio
+
++ cantar 21.04.15 20:00 #ocio #cultura #diversion
+
++ cumple 23.04.15 15:00 #felicidad #diversion
+
++ examen 02.05.15 15:00 #estudios #prepareuself
+
++ cenar 24.04.15 00:00 #gastronomia #comer #amigos #diversion #felicidad
+
++ mirar 25.04.15 20:00
+
++ examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+-1
+No s'ha realitzat
+
+1 #bla
+No s'ha realitzat
+
+rellotge 21.04.15 20:00
+
+?
+1 cantar 21.04.15 20:00 #cultura #diversion #ocio
+2 cumple 23.04.15 15:00 #diversion #felicidad
+3 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+4 mirar 25.04.15 20:00
+5 examen 02.05.15 15:00 #estudios #prepareuself
+6 examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+1 -etiquetes
+
+?
+1 cantar 21.04.15 20:00
+2 cumple 23.04.15 15:00 #diversion #felicidad
+3 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+4 mirar 25.04.15 20:00
+5 examen 02.05.15 15:00 #estudios #prepareuself
+6 examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+1 #bla
+
+1 -#bla
+
+?
+1 cantar 21.04.15 20:00
+2 cumple 23.04.15 15:00 #diversion #felicidad
+3 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+4 mirar 25.04.15 20:00
+5 examen 02.05.15 15:00 #estudios #prepareuself
+6 examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+-1
+
+1 blabla
+No s'ha realitzat
+
+rellotge 21.04.15 19:59
+No s'ha realitzat
+
+passat?
+1 ir al cine 21.04.15 18:31 #cultura #diversion #ocio
+
+1 19:00
+No s'ha realitzat
+
+?
+1 cumple 23.04.15 15:00 #diversion #felicidad
+2 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+3 mirar 25.04.15 20:00
+4 examen 02.05.15 15:00 #estudios #prepareuself
+5 examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+1 #tag1 #tag2 #tag3 #tag4
+
+?
+1 cumple 23.04.15 15:00 #diversion #felicidad #tag1 #tag2 #tag3 #tag4
+2 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+3 mirar 25.04.15 20:00
+4 examen 02.05.15 15:00 #estudios #prepareuself
+5 examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+? (#felicidad,#estudios)
+1 cumple 23.04.15 15:00 #diversion #felicidad #tag1 #tag2 #tag3 #tag4
+2 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+3 examen 02.05.15 15:00 #estudios #prepareuself
+4 examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+? (#diversion.(#felicidad,#ocio))
+1 cumple 23.04.15 15:00 #diversion #felicidad #tag1 #tag2 #tag3 #tag4
+2 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+
+? 24.04.15 21.04.15
+
+? #ocio
+
+?
+1 cumple 23.04.15 15:00 #diversion #felicidad #tag1 #tag2 #tag3 #tag4
+2 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+3 mirar 25.04.15 20:00
+4 examen 02.05.15 15:00 #estudios #prepareuself
+5 examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+1 23.04.15 16:00
+
+1 24.04.15 16:00
+
+?
+1 cenar 24.04.15 00:00 #amigos #comer #diversion #felicidad #gastronomia
+2 cumple 24.04.15 16:00 #diversion #felicidad #tag1 #tag2 #tag3 #tag4
+3 mirar 25.04.15 20:00
+4 examen 02.05.15 15:00 #estudios #prepareuself
+5 examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+
+
+
+sortir
