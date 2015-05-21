@@ -44,13 +44,13 @@ bool Tarea::tratar_expr(string s){
     if(s[0] == '#'){ //caso base
         return contiene_tag(s);
     } else {
-        bool reg_expr = false;
+        bool found = false;
         int nivel = 0;
         int i= s.length() -2;
-        while(i > 2 and not reg_expr){
+        while(i > 2 and not found){
             if(s[i]== ')') ++nivel; // por cada parentesis que se cierra se añade 1
             else if(s[i]== '(') --nivel; // por cada parentesis que se abre se resta 1
-            if((s[i]== '.' or s[i] == ',') and nivel == 0) reg_expr = true; // cuando se ha encontrado un punto o coma
+            if((s[i]== '.' or s[i] == ',') and nivel == 0) found = true; // cuando se ha encontrado un punto o coma
                                                                             // cuando se han cerrado todas los parentisis abiertos
             --i;
         }
