@@ -16,8 +16,11 @@ tarea.o: tarea.cc tarea.hh
 agenda.o: agenda.cc agenda.hh
 	g++ -c agenda.cc -D_JUDGE_ -D_GLIBCXX_DEBUG -ansi -O2 -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -std=c++0x
 
-practica.tar: agenda.cc agenda.hh Makefile program.cc reloj.cc reloj.hh tags.cc tags.hh tarea.cc tarea.hh
+practica_pro.tar: agenda.cc agenda.hh Makefile program.cc reloj.cc reloj.hh tags.cc tags.hh tarea.cc tarea.hh
 	tar -cvf practica.tar agenda.cc agenda.hh Makefile program.cc reloj.cc reloj.hh tags.cc tags.hh tarea.cc tarea.hh
+
+practica.tar: agenda.cc agenda.hh Makefile program.cc reloj.cc reloj.hh tags.cc tags.hh tarea.cc tarea.hh jp_* equip.odt equip.pdf html.zip
+	tar -cvf practica.tar agenda.cc agenda.hh Makefile program.cc reloj.cc reloj.hh tags.cc tags.hh tarea.cc tarea.hh jp_* equip.odt equip.pdf html.zip
 
 #
 # Esta ultima opcion sirve para limpiar el directorio de ficheros 

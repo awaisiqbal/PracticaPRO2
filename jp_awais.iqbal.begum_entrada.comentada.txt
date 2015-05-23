@@ -1,0 +1,37 @@
++ ir al cine 21.04.15 18:31 #diversion #cultura #ocio
++ cantar 21.04.15 20:00 #ocio #cultura #diversion
++ cumple 23.04.15 15:00 #felicidad #diversion
++ examen 02.05.15 15:00 #estudios #prepareuself
++ cenar 24.04.15 00:00 #gastronomia #comer #amigos #diversion #felicidad
++ mirar 25.04.15 20:00
++ examen 02.05.15 15:01 #aburrido #cansado #estudios #prepareuself
+-1									//Borrar una tarea sin hacer consulta
+1 #bla									//Modificar tarea sin hacer consulta
+rellotge 21.04.15 20:00	
+?									//Mostrar solamente las comandas futuras despues de 21.04.15
+1 -etiquetes								//Borrar todas las etiquetas etiqueta
+?
+1 #bla									//AÃ±adir sin hacer consultas de por medio
+1 -#bla									//Borrar sin hacer consultas de por medio
+?
+-1									//Borrar una tarea										
+1 blabla								//Modificar una tarea borrada
+rellotge 21.04.15 19:59							//Mover el reloj 1 minuto atras
+passat?									//Mostrar todas las tareas del pasado sin incluir la de hroa actual
+1 19:00									//Modificar una tarea del pasado
+?		
+1 #tag1 #tag2 #tag3 #tag4						//Anadir/modificar una tarea insertando muchos tags
+?									//Comprobar que se han aÃ±adido todas las etiquetas sin borrar anteriores
+? (#felicidad,#estudios)
+? (#diversion.(#felicidad,#ocio))					//Consulta de intervalos incorrectos
+? 24.04.15 21.04.15							//Buscar etiqueta que solo esta en el pasado
+? #ocio
+?
+1 23.04.15 16:00							//Modificar el reloj primera vez
+1 24.04.15 16:00							//Modificar el reloj segunda vez sin hacer la consulta de nuevo
+?
+5 -#prepareuself
+?
+
+sortir
+

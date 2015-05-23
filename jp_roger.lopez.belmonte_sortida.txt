@@ -1,0 +1,179 @@
+
++ gym 10:00 #lleure #biceps #cames
+
++ rentar coche 13:00
+
++ repasar examen 21.04.15 09:00
+
++ examen 21.04.15 13:10
+
+?
+1 gym 20.04.15 10:00 #biceps #cames #lleure
+2 rentar coche 20.04.15 13:00
+3 repasar examen 21.04.15 09:00
+4 examen 21.04.15 13:10
+
+1 -#biceps
+
+1 #triceps
+
+rellotge 18:00
+
++ veure tv 19:00 #lleure
+
+?
+1 veure tv 20.04.15 19:00 #lleure
+2 repasar examen 21.04.15 09:00
+3 examen 21.04.15 13:10
+
+2 08:30 #mandra
+
+passat?
+1 gym 20.04.15 10:00 #cames #lleure #triceps
+2 rentar coche 20.04.15 13:00
+
+2 -#esport             
+No s'ha realitzat
+
++ 22.04.15 22:00 cinema #lleure #amics
+
++ 23.04.15 gym 10:00 #lleure #biceps #pit
+
++ jugar futbol 23.04.15 17:30 #amics
+
++ cinema 20.03.15 18:00  
+No s'ha realitzat
+
+rellotge 21.04.15 00:00
+
+?
+1 repasar examen 21.04.15 08:30 #mandra
+2 examen 21.04.15 13:10
+3 cinema 22.04.15 22:00 #amics #lleure
+4 gym 23.04.15 10:00 #biceps #lleure #pit
+5 jugar futbol 23.04.15 17:30 #amics
+
+-2
+
+2 #aprobat   
+No s'ha realitzat
+
+? (#lleure,#amics)
+1 cinema 22.04.15 22:00 #amics #lleure
+2 gym 23.04.15 10:00 #biceps #lleure #pit
+3 jugar futbol 23.04.15 17:30 #amics
+
+1 22:15 cinema abrera
+
+-4
+No s'ha realitzat
+
+?
+1 repasar examen 21.04.15 08:30 #mandra
+2 cinema abrera 22.04.15 22:15 #amics #lleure
+3 gym 23.04.15 10:00 #biceps #lleure #pit
+4 jugar futbol 23.04.15 17:30 #amics
+
++ preparar practica 25.04.15 12:00 #pro2
+
++ estudiar 25.04.15 23:00 #uni
+
++ jugar 23.04.15 10:00
+No s'ha realitzat
+
+rellotge 24.04.15 15:00
+
+? 22.04.15
+
+passat?
+1 gym 20.04.15 10:00 #cames #lleure #triceps
+2 rentar coche 20.04.15 13:00
+3 veure tv 20.04.15 19:00 #lleure
+4 repasar examen 21.04.15 08:30 #mandra
+5 cinema abrera 22.04.15 22:15 #amics #lleure
+6 gym 23.04.15 10:00 #biceps #lleure #pit
+7 jugar futbol 23.04.15 17:30 #amics
+
+?
+1 preparar practica 25.04.15 12:00 #pro2
+2 estudiar 25.04.15 23:00 #uni
+
+rellotge 23.04.15
+No s'ha realitzat
+
++ 00:00 festa 01.05.15 #lleure #pont
+
++ practica pro2 01.05.15 18:00 #uni
+
++ aniversari marc 02.05.15 21:45 #lleure #amics #pont
+
+-3
+No s'ha realitzat
+
+? 24.04.15
+
+? 25.04.15
+1 preparar practica 25.04.15 12:00 #pro2
+2 estudiar 25.04.15 23:00 #uni
+
+2 -etiquetes
+
+6 #estudiar
+No s'ha realitzat
+
++ jugar ps4 03.05.15 10:00 #lleure #pont
+
++ 16:00 futbol camp 03.05.15 #promocio #amics #pont
+
++ 03.05.15 continuar practica pro2 20:00 #mandra #uni
+
+? (#pont.(#amics,#lleure)) 20.04.15 03.05.15  
+1 festa 01.05.15 00:00 #lleure #pont
+2 aniversari marc 02.05.15 21:45 #amics #lleure #pont
+3 jugar ps4 03.05.15 10:00 #lleure #pont
+4 futbol camp 03.05.15 16:00 #amics #pont #promocio
+
+4 16:30        
+
+passat?
+1 gym 20.04.15 10:00 #cames #lleure #triceps
+2 rentar coche 20.04.15 13:00
+3 veure tv 20.04.15 19:00 #lleure
+4 repasar examen 21.04.15 08:30 #mandra
+5 cinema abrera 22.04.15 22:15 #amics #lleure
+6 gym 23.04.15 10:00 #biceps #lleure #pit
+7 jugar futbol 23.04.15 17:30 #amics
+
+3 #lleure
+No s'ha realitzat
+
+?
+1 preparar practica 25.04.15 12:00 #pro2
+2 estudiar 25.04.15 23:00
+3 festa 01.05.15 00:00 #lleure #pont
+4 practica pro2 01.05.15 18:00 #uni
+5 aniversari marc 02.05.15 21:45 #amics #lleure #pont
+6 jugar ps4 03.05.15 10:00 #lleure #pont
+7 futbol camp 03.05.15 16:30 #amics #pont #promocio
+8 continuar practica pro2 03.05.15 20:00 #mandra #uni
+
+3 #descans
+
+-3
+
+3 -#descans
+No s'ha realitzat
+
+?
+1 preparar practica 25.04.15 12:00 #pro2
+2 estudiar 25.04.15 23:00
+3 practica pro2 01.05.15 18:00 #uni
+4 aniversari marc 02.05.15 21:45 #amics #lleure #pont
+5 jugar ps4 03.05.15 10:00 #lleure #pont
+6 futbol camp 03.05.15 16:30 #amics #pont #promocio
+7 continuar practica pro2 03.05.15 20:00 #mandra #uni
+
+2 12:00
+No s'ha realitzat
+
+sortir
