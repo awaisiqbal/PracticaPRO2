@@ -45,7 +45,7 @@ rellotge 23.04.15
 ? (#pont.(#amics,#lleure)) 20.04.15 03.05.15     // consultar entre fechas con una anterior a reloj actual (No produce error, la consulta se hace desde el reloj actual)
 4 16:30        
 passat?
-3 #lleure				// añadir una etiqueta que ya existe ("No s'ha realitzat")
+3 #lleure
 ?
 3 #descans
 -3
